@@ -1,6 +1,7 @@
 import ChatGPTLogo from "@assets/ChatGPTOutlineLogo.svg";
 import { HStack } from "@components/atoms/HStack";
 import { ShareIcon } from "@components/atoms/Icon";
+import { Progress } from "@components/atoms/Progess";
 import { Stack } from "@components/atoms/Stack";
 import { ChatBubble } from "@components/molecules/chat-bubble";
 import { Container } from "@components/molecules/container";
@@ -46,13 +47,16 @@ const ChatPage = () => {
             text="Ваше аудио было успешно создано. Вы можете дополнительно настроить его или просто загрузить для использования."
             type="response"
             attachContent={
-              <FileResponseImage
-                fileName="Картинка.png"
-                fileSize={22.0}
-                onDownload={() => {}}
-                type="response"
-                fileType="txt"
-              />
+              <Stack>
+                <FileResponseImage
+                  fileName="Картинка.png"
+                  fileSize={22.0}
+                  onDownload={() => {}}
+                  type="response"
+                  fileType="txt"
+                />
+                <Progress value={32} />
+              </Stack>
             }
           />
           <ChatBubble
