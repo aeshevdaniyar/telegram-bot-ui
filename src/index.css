@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@layer base {
+  body {
+    @apply font-sans text-foreground;
+  }
+
+  .main {
+    height: calc(100dvh - 74px - 86px);
+    overflow-y: auto;
+  }
+}
+
+@layer components {
+  .inter-5xl-regular {
+    @apply text-5xl font-sans font-normal;
+  }
+  .inter-5xl-semibold {
+    @apply text-5xl  font-sans font-semibold;
+  }
+  .inter-5xl-bold {
+    @apply text-5xl  font-sans font-bold;
+  }
+
+  .inter-4xl-regular {
+    @apply text-4xl  font-sans font-normal;
+  }
+  .inter-4xl-semibold {
+    @apply text-4xl  font-sans font-semibold;
+  }
+  .inter-4xl-bold {
+    @apply text-4xl  font-sans font-bold;
+  }
+
+  .inter-3xl-regular {
+    @apply text-3xl  font-sans font-normal;
+  }
+
+  .inter-3xl-semibold {
+    @apply text-3xl  font-sans font-semibold;
+  }
+
+  .inter-3xl-bold {
+    @apply text-3xl  font-sans font-bold;
+  }
+
+  .inter-2xl-regular {
+    @apply text-2xl font-sans font-normal;
+  }
+
+  .inter-2xl-semibold {
+    @apply text-2xl  font-sans font-semibold;
+  }
+
+  .inter-2xl-bold {
+    @apply text-2xl  font-sans font-bold;
+  }
+
+  .inter-xl-regular {
+    @apply text-xl font-sans font-normal;
+  }
+
+  .inter-xl-semibold {
+    @apply text-xl  font-sans font-semibold;
+  }
+
+  .inter-xl-bold {
+    @apply text-xl  font-sans font-bold;
+  }
+
+  .inter-lg-regular {
+    @apply text-lg font-sans font-normal;
+  }
+  .inter-lg-semibold {
+    @apply text-lg font-sans font-semibold;
+  }
+  .inter-lg-medium {
+    @apply text-lg font-sans font-medium;
+  }
+  .inter-lg-bold {
+    @apply text-lg font-sans font-bold;
+  }
+
+  .inter-base-regular {
+    @apply text-base font-sans font-normal;
+  }
+  .inter-base-semibold {
+    @apply text-base font-sans font-semibold;
+  }
+
+  .inter-base-bold {
+    @apply text-base font-sans font-bold;
+  }
+
+  .inter-sm-regular {
+    @apply text-sm  font-sans font-normal;
+  }
+
+  .inter-sm-semibold {
+    @apply text-sm  font-sans font-semibold;
+  }
+
+  .inter-sm-bold {
+    @apply text-sm  font-sans font-bold;
+  }
+  .inter-sm-medium {
+    @apply text-sm font-sans font-medium;
+  }
+
+  .inter-xs-regular {
+    @apply text-xs  font-sans font-normal;
+  }
+
+  .inter-xs-semibold {
+    @apply text-xs font-sans font-semibold;
+  }
+
+  .inter-xs-bold {
+    @apply text-xs font-sans font-bold;
+  }
+}
