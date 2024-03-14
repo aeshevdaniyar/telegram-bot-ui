@@ -5,6 +5,7 @@ import { HStack } from "@components/atoms/HStack";
 import { Button } from "@components/atoms/Button";
 import { Stack } from "@components/atoms/Stack";
 import { PlanItemCard } from "@components/molecules/plan-item-card";
+import { LinkHref } from "@components/atoms/Link";
 
 const PlansPage = () => {
   return (
@@ -26,6 +27,11 @@ const PlansPage = () => {
         <PlanItemCard days={3} price={100} tokens={50} text="Пробный тариф:" />
         <PlanItemCard days={3} price={100} tokens={50} text="Пробный тариф:" />
       </Stack>
+      <Text className="vela-sm-regular mt-4.5">
+        Нажимая кнопку "Купить подписку", я даю согласие на регулярные списания,
+        на обработку персональных данных и принимаю условия
+        <LinkHref to={"/"}>публичной оферты</LinkHref>
+      </Text>
     </Container>
   );
 };

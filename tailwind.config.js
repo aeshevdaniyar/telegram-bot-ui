@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+        vela: ["Vela", "sans-serif"],
       },
       colors: {
         primary: {
@@ -15,7 +16,10 @@ export default {
           foreground: "#E8ECEF",
         },
         foreground: "#141718",
-        muted: "#F3F5F7",
+        muted: {
+          DEFAULT: "#F3F5F7",
+          foreground: "#323735",
+        },
       },
       height: {
         header: "74px",

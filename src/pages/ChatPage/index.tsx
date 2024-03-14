@@ -4,6 +4,9 @@ import { FolderAddIcon, PlusIcon } from "@components/atoms/Icon";
 import { Stack } from "@components/atoms/Stack";
 import { Input } from "@components/atoms/Input";
 import { Container } from "@components/molecules/container";
+import { Text } from "@components/atoms/Text";
+import { Box } from "@components/atoms/Box";
+import { ChatList } from "@components/organisms/chat-list";
 
 const ChatPage = () => {
   return (
@@ -18,6 +21,12 @@ const ChatPage = () => {
           </Button>
         </HStack>
         <Input placeholder="Поиск" />
+        <Box className="px-3.5 ">
+          <Text className="text-secondary/75 font-sans text-md font-medium">
+            Список чатов
+          </Text>
+        </Box>
+        <ChatList />
       </Stack>
     </Container>
   );

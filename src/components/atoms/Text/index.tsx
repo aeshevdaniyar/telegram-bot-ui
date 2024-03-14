@@ -5,11 +5,11 @@ import { FC } from "react";
 const textVariants = cva("text-foreground", {
   variants: {
     size: {
-      xs: "inter-xs-semibold",
-      sm: "inter-sm-semibold",
-      md: "inter-base-semibold",
-      lg: "inter-lg-semibold",
-      xl: "inter-xl-semibold",
+      xs: "vela-xs-semibold",
+      sm: "vela-sm-semibold",
+      md: "vela-base-semibold",
+      lg: "vela-lg-semibold",
+      xl: "vela-xl-semibold",
     },
   },
 
@@ -22,10 +22,5 @@ export interface TextProps
     VariantProps<typeof textVariants> {}
 
 export const Text: FC<TextProps> = ({ className, size, ...props }) => {
-  return (
-    <p
-      className={cn(textVariants({ size, className: cn(className) }))}
-      {...props}
-    />
-  );
+  return <p className={cn(textVariants({ size, className }), className)} {...props} />;
 };

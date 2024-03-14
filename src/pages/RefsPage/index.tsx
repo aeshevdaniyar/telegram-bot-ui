@@ -6,6 +6,7 @@ import { Text } from "@components/atoms/Text";
 import { Card } from "@components/atoms/Card";
 import { Container } from "@components/molecules/container";
 import { CopyBlock } from "@components/molecules/copy-block";
+import { QuestionMark } from "@components/molecules/question-mark";
 
 const RefsPage = () => {
   const { handleCopy, isCopied } = useClipboard(
@@ -23,9 +24,7 @@ const RefsPage = () => {
               <Text>💎</Text>
               <Text className="text-2xl">0 токенов</Text>
             </HStack>
-            <HStack className="bg-muted w-7 h-7 rounded-full items-center justify-center">
-              ?
-            </HStack>
+            <QuestionMark popoverText="Тут какой-то текст" />
           </HStack>
         </Card>
         <HStack className="gap-4 md:flex-row flex-col">
@@ -43,10 +42,28 @@ const RefsPage = () => {
             <HStack className="gap-4">
               <Text>💎</Text>
               <HStack className="justify-between w-full items-center border-b pb-4">
-                <Text>1000 - токенов за каждого разработчика работы с API</Text>
-                <HStack className="bg-muted min-w-7 h-7 rounded-full items-center justify-center">
-                  ?
-                </HStack>
+                <Text className="text-base font-normal">
+                  1000 - токенов за каждого разработчика работы с API
+                </Text>
+                <QuestionMark popoverText="Тут какой-то текст" />
+              </HStack>
+            </HStack>
+            <HStack className="gap-4">
+              <Text>💎</Text>
+              <HStack className="justify-between w-full items-center border-b pb-4">
+                <Text className="text-base font-normal">
+                  1000 - токенов за каждого разработчика работы с API
+                </Text>
+                <QuestionMark popoverText="Тут какой-то текст" />
+              </HStack>
+            </HStack>
+            <HStack className="gap-4">
+              <Text>💎</Text>
+              <HStack className="justify-between w-full items-center border-b pb-4">
+                <Text className="text-base font-normal">
+                  1000 - токенов за каждого разработчика работы с API
+                </Text>
+                <QuestionMark popoverText="Тут какой-то текст" />
               </HStack>
             </HStack>
           </Stack>

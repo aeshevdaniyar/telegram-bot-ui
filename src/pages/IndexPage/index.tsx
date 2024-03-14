@@ -6,6 +6,7 @@ import ChatPage from "../ChatPage";
 import PlansPage from "../PlansPage";
 import RefsPage from "../RefsPage";
 import SettingPage from "../SettingPage";
+import TokensPage from "../TokensPage";
 
 const ProfilePage = lazy(() => import("../ProfilePage"));
 const NaturalNetworksPage = lazy(() => import("../NaturalNetworksPage"));
@@ -68,6 +69,14 @@ const IndexPage = () => {
           element={
             <Page>
               <SettingPage />
+            </Page>
+          }
+        />
+        <Route
+          path="tokens/*"
+          element={
+            <Page>
+              <TokensPage />
             </Page>
           }
         />

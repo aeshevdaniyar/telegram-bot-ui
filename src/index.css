@@ -33,6 +33,47 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Vela";
+  src: url("./fonts/VelaSans-Regular.woff") format("woff");
+  src: url("./fonts/VelaSans-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vela";
+  src: url("./fonts/VelaSans-Medium.woff") format("woff");
+  src: url("./fonts/VelaSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vela";
+  src: url("./fonts/VelaSans-SemiBold.woff") format("woff");
+  src: url("./fonts/VelaSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vela";
+  src: url("./fonts/VelaSans-SemiBold.woff") format("woff");
+  src: url("./fonts/VelaSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vela";
+  src: url("./fonts/VelaSans-Bold.woff") format("woff");
+  src: url("./fonts/VelaSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 @layer base {
   body {
     @apply font-sans text-foreground;
@@ -45,6 +86,108 @@
 }
 
 @layer components {
+  .vela-5xl-regular {
+    @apply text-5xl font-vela font-normal;
+  }
+  .vela-5xl-semibold {
+    @apply text-5xl  font-vela font-semibold;
+  }
+  .vela-5xl-bold {
+    @apply text-5xl  font-vela font-bold;
+  }
+  .vela-4xl-regular {
+    @apply text-4xl  font-vela font-normal;
+  }
+  .vela-4xl-semibold {
+    @apply text-4xl  font-vela font-semibold;
+  }
+  .vela-4xl-bold {
+    @apply text-4xl  font-vela font-bold;
+  }
+  .vela-3xl-regular {
+    @apply text-3xl  font-vela font-normal;
+  }
+
+  .vela-3xl-semibold {
+    @apply text-3xl  font-vela font-semibold;
+  }
+
+  .vela-3xl-bold {
+    @apply text-3xl  font-vela font-bold;
+  }
+  .vela-2xl-regular {
+    @apply text-2xl font-vela font-normal;
+  }
+
+  .vela-2xl-semibold {
+    @apply text-2xl  font-vela font-semibold;
+  }
+
+  .vela-2xl-bold {
+    @apply text-2xl  font-vela font-bold;
+  }
+  .vela-xl-regular {
+    @apply text-xl font-vela font-normal;
+  }
+
+  .vela-xl-semibold {
+    @apply text-xl  font-vela font-semibold;
+  }
+  .vela-xl-bold {
+    @apply text-xl  font-vela font-bold;
+  }
+
+  .vela-lg-regular {
+    @apply text-lg font-vela font-normal;
+  }
+  .vela-lg-semibold {
+    @apply text-lg font-vela font-semibold;
+  }
+  .vela-lg-medium {
+    @apply text-lg font-vela font-medium;
+  }
+  .vela-lg-bold {
+    @apply text-lg font-vela font-bold;
+  }
+
+  .vela-base-regular {
+    @apply text-base font-vela font-normal;
+  }
+  .vela-base-semibold {
+    @apply text-base font-vela font-semibold;
+  }
+
+  .vela-base-bold {
+    @apply text-base font-vela font-bold;
+  }
+
+  .vela-sm-regular {
+    @apply text-sm  font-vela font-normal;
+  }
+
+  .vela-sm-semibold {
+    @apply text-sm  font-vela font-semibold;
+  }
+
+  .vela-sm-bold {
+    @apply text-sm  font-vela font-bold;
+  }
+  .vela-sm-medium {
+    @apply text-sm font-vela font-medium;
+  }
+
+  .vela-xs-regular {
+    @apply text-xs  font-vela font-normal;
+  }
+
+  .vela-xs-semibold {
+    @apply text-xs font-vela font-semibold;
+  }
+
+  .vela-xs-bold {
+    @apply text-xs font-vela font-bold;
+  }
+
   .inter-5xl-regular {
     @apply text-5xl font-sans font-normal;
   }

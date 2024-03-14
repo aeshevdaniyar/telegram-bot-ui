@@ -6,10 +6,10 @@ import { Card } from "@components/atoms/Card";
 import { FC } from "react";
 
 export interface PlanItemCardProps {
-  price: number;
-  tokens: number;
-  days: number;
-  text: string;
+  price?: number;
+  tokens?: number;
+  days?: number;
+  text?: string;
 }
 
 export const PlanItemCard: FC<PlanItemCardProps> = (props) => {
@@ -19,11 +19,12 @@ export const PlanItemCard: FC<PlanItemCardProps> = (props) => {
     <Card>
       <Stack className="gap-4">
         <HStack className="items-center gap-4 md:gap-9 flex-wrap">
-          <Text size={"xl"}>{text}</Text>
-          <HStack className="gap-3 md:gap-6 flex-wrap">
-            <Text>💸 {price}₽</Text>
-            <Text>💎 {tokens} токенов</Text>
-            <Text>🗓 {days} дня</Text>
+          {text && <Text size={"xl"}>{text}</Text>}
+
+          <HStack className="gap-3 md:gap-6 flex-wrap justify-between">
+            {price && <Text>💸 {price}₽</Text>}
+            {tokens && <Text>💎 {tokens} токенов</Text>}
+            {days && <Text>🗓 {days} дня</Text>}
           </HStack>
         </HStack>
         <HStack>

@@ -16,21 +16,27 @@ const NeturalNetworksPage = () => {
       <Container>
         <Stack className="justify-center items-center">
           <Heading level={"h4"}>Раскройте возможности ИИ</Heading>
-          <Text>Испытайте силу искусственного интеллекта вместе с нами.</Text>
+          <Text className="text-secondary font-normal">
+            Испытайте силу искусственного интеллекта вместе с нами.
+          </Text>
           <Stack className="w-full mt-8 gap-5">
             <AITypeItem
               image={PhotoIcon}
-              pageLink=""
+              pageLink="/all-ai"
               title="Генерация картинок"
             />
             <AITypeItem image={VideoIcon} pageLink="" title="Генерация видео" />
             <AITypeItem
               image={EduIcon}
-              pageLink=""
+              pageLink="/all-ai"
               title="Генерация Документов"
             />
-            <AITypeItem image={AudioIcom} pageLink="" title="Генерация звука" />
-            <AITypeItem image={CodeIcon} pageLink="" title="Чат Бот" />
+            <AITypeItem
+              image={AudioIcom}
+              pageLink="/all-ai"
+              title="Генерация звука"
+            />
+            <AITypeItem image={CodeIcon} pageLink="/all-ai" title="Чат Бот" />
           </Stack>
         </Stack>
         <Box className="mt-9">

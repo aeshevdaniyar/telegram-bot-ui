@@ -24,7 +24,7 @@ export const BottomNavigationItem: FC<BottomNavigationItemProps> = (props) => {
       <Stack className="gap-1 items-center">
         <span className="block group-[.is-active]:hidden ">{icon}</span>
         <span className="hidden group-[.is-active]:block ">{activeIcon}</span>
-        <span className="group-[.is-active]:text-violet font-medium text-xs">
+        <span className="group-[.is-active]:text-primary font-medium text-xs font-vela">
           {text}
         </span>
       </Stack>
