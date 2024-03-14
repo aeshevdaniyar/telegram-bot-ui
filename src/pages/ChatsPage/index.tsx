@@ -15,7 +15,7 @@ const ChatsPage = () => {
     <PageHeader pageContent={<BaseHeaderContent title="Диалоги" />}>
       <Container>
         <Stack className="gap-3">
-          <HStack className="gap-6">
+          <HStack className="gap-6 flex-col md:flex-row">
             <Button className="w-full" leftIcon={<PlusIcon />}>
               Новый чат
             </Button>

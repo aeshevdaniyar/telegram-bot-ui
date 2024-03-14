@@ -3,14 +3,12 @@ import CodeIcon from "@assets/code.svg";
 import EduIcon from "@assets/edu.svg";
 import PhotoIcon from "@assets/photo.svg";
 import VideoIcon from "@assets/video.svg";
-import { Box } from "@components/atoms/Box";
 import { Heading } from "@components/atoms/Heading";
 import { Stack } from "@components/atoms/Stack";
 import { Text } from "@components/atoms/Text";
 import { AITypeItem } from "@components/molecules/ai-type-item";
 import { Container } from "@components/molecules/container";
 import { PageHeader } from "@components/organisms/page-header";
-import { PromtSearchPanel } from "@components/organisms/promt-search";
 import { BaseHeaderContent } from "@components/templates/base-header-content";
 const NeturalNetworksPage = () => {
   return (
@@ -41,13 +39,6 @@ const NeturalNetworksPage = () => {
             <AITypeItem image={CodeIcon} pageLink="/all-ai" title="Чат Бот" />
           </Stack>
         </Stack>
-        <Box className="mt-9">
-          <PromtSearchPanel
-          // attachContent={
-          //   <AITypeItem image={CodeIcon} pageLink="/all-ai" title="Чат Бот" />
-          // }
-          />
-        </Box>
       </Container>
     </PageHeader>
   );

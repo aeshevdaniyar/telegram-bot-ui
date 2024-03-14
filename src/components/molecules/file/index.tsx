@@ -64,6 +64,7 @@ export const FileResponseImage: FC<FileResponseProps> = (props) => {
         <Button
           className="w-8 h-8 p-0 rounded-full  bg-muted"
           onClick={onDownload}
+          variant={"ghost"}
         >
           <DownloadIcon />
         </Button>

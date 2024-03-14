@@ -4,18 +4,20 @@ import { VariantProps, cva } from "class-variance-authority";
 import { ReactNode, forwardRef } from "react";
 import { Loader2 } from "lucide-react";
 const buttonVariants = cva(
-  "inline-flex items-center gap-2 vela-base-regular text-white justify-center whitespace-nowrap rounded-md  transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center gap-2 vela-base-regular text-white justify-center whitespace-nowrap rounded-xl transition-all   focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-primary",
-        filled: "bg-primary",
+        default:
+          "bg-primary border-transparent border-2 hover:bg-primary/90 active:shadow-inner  active:border-blue",
+        filled:
+          "bg-primary border-transparent border-2 hover:bg-primary/90 active:shadow-inner  active:border-blue",
         outline: "border-2 border-secondary-foreground text-foreground",
         ghost: "text-black",
         secondary: "bg-secondary-foreground text-foreground",
       },
       size: {
-        default: "py-3 px-6",
+        default: "py-2.5 px-6",
       },
     },
 

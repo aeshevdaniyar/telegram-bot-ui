@@ -1,13 +1,14 @@
 import { cn } from "@/lib/cn";
 import { Box } from "@components/atoms/Box";
 import { HStack } from "@components/atoms/HStack";
-import { AddIcon, RecordingIcon, Setting2Icon } from "@components/atoms/Icon";
+import { AddIcon, RecordingIcon } from "@components/atoms/Icon";
 import {
   InputGroup,
   InputLeftElement,
   InputRightElement,
 } from "@components/atoms/Input";
 import { PromtSearchInput } from "@components/molecules/promt-search-input";
+import { SettingDrawer } from "@components/molecules/setting-drawer";
 import { FC, ReactNode, useState } from "react";
 
 interface PromtSearchPanelProps {
@@ -42,9 +43,7 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = (props) => {
             <Box className="cursor-pointer">
               <RecordingIcon />
             </Box>
-            <Box className="cursor-pointer">
-              <Setting2Icon />
-            </Box>
+            <SettingDrawer />
           </HStack>
         </InputRightElement>
       </InputGroup>

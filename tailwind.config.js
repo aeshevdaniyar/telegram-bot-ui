@@ -21,6 +21,9 @@ export default {
           foreground: "#323735",
         },
         "file-img-bg": "#CCD5DF",
+        blue: {
+          DEFAULT: "#0078E8",
+        },
       },
       height: {
         header: "74px",

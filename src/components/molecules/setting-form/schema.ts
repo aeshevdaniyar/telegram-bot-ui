@@ -1,16 +1,16 @@
 import { InferType, number, object, string } from "yup";
 export const settingFormSchema = object({
-  negativePromt: string(),
-  speed: number(),
-  scope: string(),
+  negativePromt: string().required(),
+  speed: number().required(),
+  scope: string().required(),
   aspectRatio: object({
-    width: number(),
-    height: number(),
-  }),
-  cfgScale: number(),
-  compression: number(),
-  decoderIferenceSteps: number(),
-  denoisingStrenght: number(),
+    width: number().required(),
+    height: number().required(),
+  }).required(),
+  cfgScale: number().required(),
+  compression: number().required(),
+  decoderIferenceSteps: number().required(),
+  denoisingStrenght: number().required(),
 });
 
 export type SettingFormType = InferType<typeof settingFormSchema>;
