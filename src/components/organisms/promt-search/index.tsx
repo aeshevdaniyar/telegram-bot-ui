@@ -18,7 +18,7 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = (props) => {
   const { attachContent } = props;
   const [promt, setPromt] = useState("");
   return (
-    <Box className="w-full bg-white">
+    <Box className="w-full bg-white rounded-xl">
       {attachContent && (
         <Box className="p-4 border-secondary-foreground border-2 border-b-0 rounded-t-xl rounded-b-none ">
           {attachContent}
