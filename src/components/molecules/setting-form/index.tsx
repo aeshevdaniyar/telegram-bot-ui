@@ -1,5 +1,4 @@
 import { NestedForm } from "@/lib/nested-form";
-import { Button } from "@components/atoms/Button";
 import {
   FormControl,
   FormField,
@@ -31,14 +30,6 @@ export const SettingForm: FC<SettingFormProps> = (props) => {
 
   return (
     <Stack className="gap-6">
-      <HStack className="gap-6">
-        <Button type="submit" className="rounded-xl w-3/5">
-          Сохранить и вернуть
-        </Button>
-        <Button variant={"outline"} className="rounded-xl w-2/5">
-          Сбросить
-        </Button>
-      </HStack>
       <FormField
         control={control}
         name={path("negativePromt")}

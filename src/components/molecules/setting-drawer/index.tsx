@@ -15,7 +15,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { object } from "yup";
-import { Container } from "../container";
 import { SettingForm } from "../setting-form";
 import { SettingFormType, settingFormSchema } from "../setting-form/schema";
 type SettingForm = {
@@ -53,32 +52,30 @@ export const SettingDrawer = () => {
           <DrawerTitle className="text-center">Настройки</DrawerTitle>
         </DrawerHeader>
 
-        <div className="max-w-md w-full mx-auto flex flex-col overflow-auto p-4">
+        <div className="w-full mx-auto flex flex-col overflow-auto p-4">
           <Form {...form}>
             <SettingForm form={nestedForm(form, "form")} />
           </Form>
         </div>
 
-        <DrawerFooter className="px-0">
-          <Container className="px-0">
-            <HStack className="gap-6 flex-col md:flex-row">
-              <Button
-                type="submit"
-                className="rounded-xl w-full md:w-3/5"
-                onClick={form.handleSubmit(onSubmit)}
-              >
-                Сохранить и вернуть
-              </Button>
+        <DrawerFooter>
+          <HStack className="gap-3 md:gap-6 flex-col md:flex-row w-full">
+            <Button
+              type="submit"
+              className="rounded-xl w-full md:w-3/5"
+              onClick={form.handleSubmit(onSubmit)}
+            >
+              Сохранить и вернуть
+            </Button>
 
-              <Button
-                variant={"outline"}
-                className="rounded-xl w-full md:w-2/5"
-                onClick={onClose}
-              >
-                Сбросить
-              </Button>
-            </HStack>
-          </Container>
+            <Button
+              variant={"outline"}
+              className="rounded-xl w-full md:w-2/5"
+              onClick={onClose}
+            >
+              Сбросить
+            </Button>
+          </HStack>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
