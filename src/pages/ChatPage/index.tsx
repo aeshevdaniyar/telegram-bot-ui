@@ -1,4 +1,5 @@
 import ChatGPTLogo from "@assets/ChatGPTOutlineLogo.svg";
+import { CodeBlock } from "@components/atoms/CodeBlock";
 import { HStack } from "@components/atoms/HStack";
 import { ShareIcon } from "@components/atoms/Icon";
 import { Progress } from "@components/atoms/Progess";
@@ -10,6 +11,15 @@ import { PageHeader } from "@components/organisms/page-header";
 import { PromtSearchPanel } from "@components/organisms/promt-search";
 import { ChatHeaderContent } from "@components/templates/chat-header-content";
 const ChatPage = () => {
+  const codeBlock = `
+  let cancelButton = document.getElementById("cancel-button"); 
+  let sendButton = document.getElementById("send-button"); 
+  cancelButton.addEventListener("click", function() 
+  { console.log("Cancel button clicked"); }); 
+  sendButton.addEventListener("click", function() 
+  { console.log("Send button clicked"); });
+`;
+
   return (
     <PageHeader
       pageContent={
@@ -64,15 +74,7 @@ const ChatPage = () => {
             date={new Date()}
             text="Ваше аудио было успешно создано. Вы можете дополнительно настроить его или просто загрузить для использования."
             type="response"
-            attachContent={
-              <FileResponseImage
-                fileName="Картинка.png"
-                fileSize={22.0}
-                onDownload={() => {}}
-                type="response"
-                fileType="image"
-              />
-            }
+            attachContent={<CodeBlock code={codeBlock} />}
           />
           <ChatBubble
             avatarImg={ChatGPTLogo}

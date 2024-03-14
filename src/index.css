@@ -91,6 +91,12 @@
   .promt-position-bottom {
     bottom: calc(12px + 86px);
   }
+  .source-code {
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
 }
 
 @layer components {

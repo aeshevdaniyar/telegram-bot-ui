@@ -1034,3 +1034,35 @@ export const GalleryIcon: React.FC<IconProps> = ({
     </svg>
   );
 };
+
+export const CopyIcon: React.FC<IconProps> = ({
+  color = "currentColor",
+  ...attributes
+}) => {
+  return (
+    <svg
+      width="17"
+      height="16"
+      viewBox="0 0 17 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...attributes}
+      color={color}
+    >
+      <rect
+        x="3.8335"
+        y="1.33398"
+        width="11.3333"
+        height="10.6667"
+        rx="4"
+        stroke="white"
+        stroke-width="0.933333"
+      />
+      <path
+        d="M4.0335 7.33398V7.33398C3.84778 7.33398 3.75492 7.33398 3.67658 7.34015C2.69583 7.41734 1.91685 8.19631 1.83966 9.17707C1.8335 9.2554 1.8335 9.34826 1.8335 9.53399V11.0007C1.8335 11.931 1.8335 12.3962 1.94832 12.7747C2.20686 13.627 2.8738 14.294 3.72607 14.5525C4.1046 14.6673 4.56963 14.6673 5.4997 14.6673C5.86018 14.6673 6.22988 14.6673 6.60015 14.6673C8.01768 14.6673 9.16683 13.5182 9.16683 12.1007V12.1007"
+        stroke="white"
+        stroke-width="0.933333"
+      />
+    </svg>
+  );
+};
