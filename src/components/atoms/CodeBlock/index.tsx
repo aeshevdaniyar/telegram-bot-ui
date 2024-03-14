@@ -100,7 +100,7 @@ export const CodeBlock: FC<CodeBlockProps> = (props) => {
       </HStack>
       <Highlight theme={theme} code={code} language="tsx">
         {({ style, tokens, getLineProps, getTokenProps }) => (
-          <pre style={style} className="p-4 rounded-b-xl source-code">
+          <pre style={style} className="p-4 rounded-b-xl source-code overflow-x-auto">
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line })}>
                 <span className="text-sm mr-4">{i + 1}</span>
