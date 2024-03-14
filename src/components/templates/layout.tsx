@@ -6,7 +6,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="py-8 main">{children}</main>
+      <main className="pt-8 main main-paddding-bottom">{children}</main>
       <BottomNavigation />
     </>
   );

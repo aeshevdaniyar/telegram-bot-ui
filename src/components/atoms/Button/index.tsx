@@ -2,7 +2,7 @@ import { cn } from "@/lib/cn";
 import { VariantProps, cva } from "class-variance-authority";
 
 import { ReactNode, forwardRef } from "react";
-
+import { Loader2 } from "lucide-react";
 const buttonVariants = cva(
   "inline-flex items-center gap-2 vela-base-regular text-white justify-center whitespace-nowrap rounded-md  transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
@@ -63,6 +63,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         })}
         {...props}
       >
+        {isLoading && <Loader2 className="animate-spin" />}
         {leftIcon}
         {children}
         {rightIcon}

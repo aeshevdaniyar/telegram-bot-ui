@@ -2,11 +2,12 @@ import { Page } from "@components/molecules/page";
 import { Layout } from "@components/templates/layout";
 import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import ChatPage from "../ChatPage";
+import ChatsPage from "../ChatsPage";
 import PlansPage from "../PlansPage";
 import RefsPage from "../RefsPage";
 import SettingPage from "../SettingPage";
 import TokensPage from "../TokensPage";
+import ChatPage from "../ChatPage";
 
 const ProfilePage = lazy(() => import("../ProfilePage"));
 const NaturalNetworksPage = lazy(() => import("../NaturalNetworksPage"));
@@ -33,7 +34,15 @@ const IndexPage = () => {
           }
         />
         <Route
-          path="chats/*"
+          path="chats"
+          element={
+            <Page>
+              <ChatsPage />
+            </Page>
+          }
+        />
+        <Route
+          path="chats/:id"
           element={
             <Page>
               <ChatPage />

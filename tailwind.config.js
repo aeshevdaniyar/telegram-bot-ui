@@ -20,10 +20,15 @@ export default {
           DEFAULT: "#F3F5F7",
           foreground: "#323735",
         },
+        "file-img-bg": "#CCD5DF",
       },
       height: {
         header: "74px",
         "bottom-navigation": "86px",
+        46: "180px",
+      },
+      width: {
+        46: "180px",
       },
       keyframes: {
         "accordion-down": {

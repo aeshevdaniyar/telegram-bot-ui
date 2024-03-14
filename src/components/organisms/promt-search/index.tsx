@@ -1,3 +1,4 @@
+import { cn } from "@/lib/cn";
 import { Box } from "@components/atoms/Box";
 import { HStack } from "@components/atoms/HStack";
 import { AddIcon, RecordingIcon, Setting2Icon } from "@components/atoms/Icon";
@@ -6,29 +7,47 @@ import {
   InputLeftElement,
   InputRightElement,
 } from "@components/atoms/Input";
+import { PromtSearchInput } from "@components/molecules/promt-search-input";
+import { FC, ReactNode, useState } from "react";
 
-export const PromtSearchPanel = () => {
+interface PromtSearchPanelProps {
+  attachContent?: ReactNode;
+}
+
+export const PromtSearchPanel: FC<PromtSearchPanelProps> = (props) => {
+  const { attachContent } = props;
+  const [promt, setPromt] = useState("");
   return (
-    <InputGroup>
-      <InputLeftElement>
-        <Box className="cursor-pointer">
-          <AddIcon />
+    <Box className="w-full bg-white">
+      {attachContent && (
+        <Box className="p-4 border-secondary-foreground border-2 border-b-0 rounded-t-xl rounded-b-none ">
+          {attachContent}
         </Box>
-      </InputLeftElement>
-      <input
-        placeholder="Введите свой запрос"
-        className="flex bg-muted w-full rounded-xl outline-none py-4 pl-14 pr-20 file:border-0 file:bg-transparent text-base font-medium placeholder:text-secondary/50  disabled:cursor-not-allowed disabled:opacity-50"
-      />
-      <InputRightElement>
-        <HStack className="items-center justify-center">
+      )}
+      <InputGroup className="w-full">
+        <InputLeftElement>
           <Box className="cursor-pointer">
-            <RecordingIcon />
+            <AddIcon />
           </Box>
-          <Box className="cursor-pointer">
-            <Setting2Icon />
-          </Box>
-        </HStack>
-      </InputRightElement>
-    </InputGroup>
+        </InputLeftElement>
+        <PromtSearchInput
+          value={promt}
+          onChange={(e) => setPromt(e.target.value)}
+          className={cn(
+            attachContent && "border-t-0 rounded-b-xl rounded-t-none"
+          )}
+        />
+        <InputRightElement>
+          <HStack className="items-center justify-center">
+            <Box className="cursor-pointer">
+              <RecordingIcon />
+            </Box>
+            <Box className="cursor-pointer">
+              <Setting2Icon />
+            </Box>
+          </HStack>
+        </InputRightElement>
+      </InputGroup>
+    </Box>
   );
 };

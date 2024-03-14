@@ -83,6 +83,14 @@
     height: calc(100dvh - 74px - 86px);
     overflow-y: auto;
   }
+
+  .main-paddding-bottom {
+    padding-bottom: calc(60px + 32px + 32px);
+  }
+
+  .promt-position-bottom {
+    bottom: calc(12px + 86px);
+  }
 }
 
 @layer components {

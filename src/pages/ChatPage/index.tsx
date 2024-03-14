@@ -1,34 +1,98 @@
-import { Button } from "@components/atoms/Button";
+import ChatGPTLogo from "@assets/ChatGPTOutlineLogo.svg";
 import { HStack } from "@components/atoms/HStack";
-import { FolderAddIcon, PlusIcon } from "@components/atoms/Icon";
+import { ShareIcon } from "@components/atoms/Icon";
 import { Stack } from "@components/atoms/Stack";
-import { Input } from "@components/atoms/Input";
+import { ChatBubble } from "@components/molecules/chat-bubble";
 import { Container } from "@components/molecules/container";
-import { Text } from "@components/atoms/Text";
-import { Box } from "@components/atoms/Box";
-import { ChatList } from "@components/organisms/chat-list";
-
+import { FileResponseImage } from "@components/molecules/file";
+import { PageHeader } from "@components/organisms/page-header";
+import { PromtSearchPanel } from "@components/organisms/promt-search";
+import { ChatHeaderContent } from "@components/templates/chat-header-content";
 const ChatPage = () => {
   return (
-    <Container>
-      <Stack className="gap-3">
-        <HStack className="gap-6">
-          <Button className="w-full" leftIcon={<PlusIcon />}>
-            Новый чат
-          </Button>
-          <Button className="w-full" leftIcon={<FolderAddIcon />}>
-            Новая группа
-          </Button>
-        </HStack>
-        <Input placeholder="Поиск" />
-        <Box className="px-3.5 ">
-          <Text className="text-secondary/75 font-sans text-md font-medium">
-            Список чатов
-          </Text>
-        </Box>
-        <ChatList />
-      </Stack>
-    </Container>
+    <PageHeader
+      pageContent={
+        <ChatHeaderContent
+          aiLogo={ChatGPTLogo}
+          aiName="ChatGPT 4"
+          rightElement={<ShareIcon />}
+        />
+      }
+    >
+      <Container>
+        <Stack className="gap-20">
+          <ChatBubble
+            avatarImg="https://github.com/shadcn.png"
+            date={new Date()}
+            text="Создайте говорящего аватара для этого сценария: «Добро пожаловать в наш новый продукт — Talking Avatar Video Creator. С помощью этого мощного инструмента вы можете легко создавать привлекательные видеоролики с участием виртуального представителя, который передает ваше сообщение персонализированным и естественным образом. Продвигая продукт, делясь информацией о своем бизнесе или проводя тренинги, наша технология на базе искусственного интеллекта позволяет легко создавать профессионально выглядящие видеоролики, которые привлекают внимание и приводят к результатам. Попробуйте сегодня и сами увидите разницу!»"
+            type="request"
+          />
+          <ChatBubble
+            avatarImg="https://github.com/shadcn.png"
+            date={new Date()}
+            text="Создайте говорящего аватара для этого сценария: «Добро пожаловать в наш новый продукт — Talking Avatar Video Creator. С помощью этого мощного инструмента вы можете легко создавать привлекательные видеоролики с участием виртуального представителя, который передает ваше сообщение персонализированным и естественным образом. Продвигая продукт, делясь информацией о своем бизнесе или проводя тренинги, наша технология на базе искусственного интеллекта позволяет легко создавать профессионально выглядящие видеоролики, которые привлекают внимание и приводят к результатам. Попробуйте сегодня и сами увидите разницу!»"
+            type="request"
+          />
+          <ChatBubble
+            avatarImg="https://github.com/shadcn.png"
+            date={new Date()}
+            text="Создайте говорящего аватара для этого сценария: «Добро пожаловать в наш новый продукт — Talking Avatar Video Creator. С помощью этого мощного инструмента вы можете легко создавать привлекательные видеоролики с участием виртуального представителя, который передает ваше сообщение персонализированным и естественным образом. Продвигая продукт, делясь информацией о своем бизнесе или проводя тренинги, наша технология на базе искусственного интеллекта позволяет легко создавать профессионально выглядящие видеоролики, которые привлекают внимание и приводят к результатам. Попробуйте сегодня и сами увидите разницу!»"
+            type="request"
+          />
+
+          <ChatBubble
+            avatarImg={ChatGPTLogo}
+            date={new Date()}
+            text="Ваше аудио было успешно создано. Вы можете дополнительно настроить его или просто загрузить для использования."
+            type="response"
+            attachContent={
+              <FileResponseImage
+                fileName="Картинка.png"
+                fileSize={22.0}
+                onDownload={() => {}}
+                type="response"
+                fileType="txt"
+              />
+            }
+          />
+          <ChatBubble
+            avatarImg={ChatGPTLogo}
+            date={new Date()}
+            text="Ваше аудио было успешно создано. Вы можете дополнительно настроить его или просто загрузить для использования."
+            type="response"
+            attachContent={
+              <FileResponseImage
+                fileName="Картинка.png"
+                fileSize={22.0}
+                onDownload={() => {}}
+                type="response"
+                fileType="image"
+              />
+            }
+          />
+          <ChatBubble
+            avatarImg={ChatGPTLogo}
+            date={new Date()}
+            text="Ваше аудио было успешно создано. Вы можете дополнительно настроить его или просто загрузить для использования."
+            type="response"
+            attachContent={
+              <FileResponseImage
+                fileName="Картинка.png"
+                fileSize={22.0}
+                onDownload={() => {}}
+                type="response"
+                fileType="word"
+              />
+            }
+          />
+        </Stack>
+      </Container>
+      <HStack className="fixed justify-center promt-position-bottom left-0 right-0">
+        <Container className="w-full">
+          <PromtSearchPanel />
+        </Container>
+      </HStack>
+    </PageHeader>
   );
 };
 
