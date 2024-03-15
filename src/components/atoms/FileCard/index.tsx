@@ -8,7 +8,7 @@ export const FileCard: FC<FileCardProps> = ({ className, type, ...props }) => {
   return (
     <Box
       className={cn(
-        "rounded-xl p-4 max-w-72 w-full",
+        "rounded-xl p-4 max-w-78.5 w-full h-[74px]",
         type == "response" && "bg-white",
         type == "request" && "bg-muted",
         className

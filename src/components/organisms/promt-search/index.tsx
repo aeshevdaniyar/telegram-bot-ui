@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 import { Box } from "@components/atoms/Box";
 import { HStack } from "@components/atoms/HStack";
-import { AddIcon, RecordingIcon } from "@components/atoms/Icon";
+import { AttachIcon, RecordingIcon } from "@components/atoms/Icon";
 import {
   InputGroup,
   InputLeftElement,
@@ -30,16 +30,14 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = (props) => {
         <InputLeftElement>
           <AttachPopover side="left">
             <Box className="cursor-pointer">
-              <AddIcon />
+              <AttachIcon />
             </Box>
           </AttachPopover>
         </InputLeftElement>
         <PromtSearchInput
           value={promt}
           onChange={(e) => setPromt(e.target.value)}
-          className={cn(
-            attachContent && "border-t-0 rounded-b-xl rounded-t-none"
-          )}
+          className={cn(attachContent && "rounded-b-xl rounded-t-none")}
         />
         <InputRightElement>
           <HStack className="items-center justify-center">

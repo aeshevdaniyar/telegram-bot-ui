@@ -6,9 +6,14 @@ import { Progress } from "@components/atoms/Progess";
 import { Stack } from "@components/atoms/Stack";
 import { ChatBubble } from "@components/molecules/chat-bubble";
 import { Container } from "@components/molecules/container";
-import { FileResponseImage } from "@components/molecules/file";
+
+import { AudioFile } from "@components/organisms/audio-file";
+import { ImageFile } from "@components/organisms/image-file";
 import { PageHeader } from "@components/organisms/page-header";
 import { PromtSearchPanel } from "@components/organisms/promt-search";
+import { TxtFile } from "@components/organisms/txt-file";
+import { VideoFile } from "@components/organisms/video-file";
+import { WordFile } from "@components/organisms/word-file";
 import { ChatHeaderContent } from "@components/templates/chat-header-content";
 import { useLayout } from "@components/templates/layout";
 import { useEffect } from "react";
@@ -18,9 +23,7 @@ const ChatPage = () => {
   useEffect(() => {
     promtInputLayout();
 
-    return () => {
-      defaultLayout();
-    };
+    return () => defaultLayout();
   }, [defaultLayout, promtInputLayout]);
 
   const codeBlock = `
@@ -70,13 +73,11 @@ const ChatPage = () => {
             type="response"
             attachContent={
               <Stack>
-                <FileResponseImage
-                  fileName="Картинка.png"
-                  fileSize={22.0}
-                  onDownload={() => {}}
-                  type="response"
-                  fileType="txt"
-                />
+                <AudioFile fileName="Медуза Matrang" type="response" />
+                <VideoFile type="response" />
+                <WordFile type="response" />
+                <TxtFile type="response" />
+                <ImageFile type="response" />
                 <Progress value={32} />
               </Stack>
             }
@@ -94,13 +95,13 @@ const ChatPage = () => {
             text="Ваше аудио было успешно создано. Вы можете дополнительно настроить его или просто загрузить для использования."
             type="response"
             attachContent={
-              <FileResponseImage
-                fileName="Картинка.png"
-                fileSize={22.0}
-                onDownload={() => {}}
-                type="response"
-                fileType="word"
-              />
+              <>
+                <AudioFile fileName="Медуза Matrang" type="response" />
+                <VideoFile type="response" />
+                <WordFile type="response" />
+                <TxtFile type="response" />
+                <ImageFile type="response" />
+              </>
             }
           />
         </Stack>

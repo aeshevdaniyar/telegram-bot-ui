@@ -33,6 +33,12 @@ export default {
       width: {
         46: "180px",
       },
+      maxWidth: {
+        74: "292px",
+        76: "296px",
+        78: "300px",
+        78.5: "302px",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

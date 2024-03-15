@@ -1,4 +1,3 @@
-import { Page } from "@components/molecules/page";
 import { PageInner } from "@components/organisms/page-inner";
 import { Layout } from "@components/templates/layout";
 import { lazy } from "react";
@@ -17,7 +16,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Routes>
-        <Route index element={<Page>{/* <MainPage /> */}</Page>} />
+        <Route index element={<PageInner>{/* <MainPage /> */}</PageInner>} />
         <Route
           path="profile/*"
           element={
