@@ -58,16 +58,28 @@ const ChatPage = () => {
             attachContent={
               <ImageGallery>
                 <Image>
-                  <img src="https://github.com/shadcn.png" />
+                  <img
+                    className="w-full h-full object-cover"
+                    src="https://c4.wallpaperflare.com/wallpaper/824/889/310/apex-legends-wraith-apex-legends-hd-wallpaper-preview.jpg"
+                  />
                 </Image>
                 <Image>
-                  <img src="https://github.com/shadcn.png" />
+                  <img
+                    className="w-full h-full object-cover"
+                    src="https://github.com/shadcn.png"
+                  />
                 </Image>
                 <Image>
-                  <img src="https://github.com/shadcn.png" />
+                  <img
+                    className="w-full h-full object-cover"
+                    src="https://c4.wallpaperflare.com/wallpaper/210/864/1014/video-game-apex-legends-bloodhound-apex-legends-lifeline-apex-legends-wraith-apex-legends-hd-wallpaper-preview.jpg"
+                  />
                 </Image>
                 <Image>
-                  <img src="https://github.com/shadcn.png" />
+                  <img
+                    className="w-full h-full object-cover"
+                    src="https://c4.wallpaperflare.com/wallpaper/322/770/553/video-game-apex-legends-bloodhound-apex-legends-hd-wallpaper-preview.jpg"
+                  />
                 </Image>
               </ImageGallery>
             }
