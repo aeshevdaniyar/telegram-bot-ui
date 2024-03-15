@@ -24,6 +24,9 @@ export default {
         blue: {
           DEFAULT: "#0078E8",
         },
+        accent: {
+          red: "#D84C10",
+        },
       },
       height: {
         header: "74px",

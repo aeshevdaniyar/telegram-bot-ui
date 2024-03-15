@@ -1,8 +1,11 @@
 import ChatGPTLogo from "@assets/ChatGPTOutlineLogo.svg";
+import { Button } from "@components/atoms/Button";
 import { CodeBlock } from "@components/atoms/CodeBlock";
 import { HStack } from "@components/atoms/HStack";
 import { ShareIcon } from "@components/atoms/Icon";
 import { Stack } from "@components/atoms/Stack";
+import { Text } from "@components/atoms/Text";
+import { BotError } from "@components/molecules/bot-error";
 import { BotLoader } from "@components/molecules/bot-loader";
 import { BotProgress } from "@components/molecules/bot-progress";
 import { ChatBubble } from "@components/molecules/chat-bubble";
@@ -163,6 +166,15 @@ const ChatPage = () => {
               </>
             }
           />
+          <BotError>
+            <HStack className="flex-col md:flex-row">
+              <Text className="text-accent-red font-normal">
+                💎 У вас недостаточно токенов для запроса в нейросеть, сначала
+                пополните баланс.
+              </Text>
+              <Button className="w-full md:max-w-52">Купить токены</Button>
+            </HStack>
+          </BotError>
         </Stack>
       </Container>
       <HStack className="fixed justify-center promt-position-bottom left-0 right-0 z-20">
