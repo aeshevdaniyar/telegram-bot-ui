@@ -1,8 +1,8 @@
+import ChatGptLogo from "@assets/ChatGPTLogo.svg";
+import { Pagination } from "@components/atoms/Pagination";
+import { Stack } from "@components/atoms/Stack";
 import { Container } from "@components/molecules/container";
 import { NaturalnetworksListItem } from "@components/molecules/naturalnetworks-list-item";
-import ChatGptLogo from "@assets/ChatGPTLogo.svg";
-import { Stack } from "@components/atoms/Stack";
-import { Pagination } from "@components/atoms/Pagination";
 import { PageHeader } from "@components/organisms/page-header";
 import { BaseHeaderContent } from "@components/templates/base-header-content";
 const AllAiPage = () => {
@@ -31,6 +31,7 @@ const AllAiPage = () => {
             imageLogo={ChatGptLogo}
             name="ChatGPT"
           />
+
           <Pagination
             currentPage={1}
             innerLimit={1}

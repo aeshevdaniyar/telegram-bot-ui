@@ -1,4 +1,4 @@
-import { Page } from "@components/molecules/page";
+import { PageGlobal } from "@components/organisms/page-global";
 import { lazy } from "react";
 import {
   Route,
@@ -19,9 +19,9 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <Page>
+    <PageGlobal>
       <RouterProvider router={router} />
-    </Page>
+    </PageGlobal>
   );
 }
 

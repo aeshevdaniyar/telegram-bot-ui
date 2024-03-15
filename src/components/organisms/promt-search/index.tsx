@@ -7,6 +7,7 @@ import {
   InputLeftElement,
   InputRightElement,
 } from "@components/atoms/Input";
+import { AttachPopover } from "@components/molecules/attach-popover";
 import { PromtSearchInput } from "@components/molecules/promt-search-input";
 import { SettingDrawer } from "@components/molecules/setting-drawer";
 import { FC, ReactNode, useState } from "react";
@@ -27,9 +28,11 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = (props) => {
       )}
       <InputGroup className="w-full">
         <InputLeftElement>
-          <Box className="cursor-pointer">
-            <AddIcon />
-          </Box>
+          <AttachPopover side="left">
+            <Box className="cursor-pointer">
+              <AddIcon />
+            </Box>
+          </AttachPopover>
         </InputLeftElement>
         <PromtSearchInput
           value={promt}
@@ -40,9 +43,12 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = (props) => {
         />
         <InputRightElement>
           <HStack className="items-center justify-center">
-            <Box className="cursor-pointer">
-              <RecordingIcon />
-            </Box>
+            <AttachPopover side="right">
+              <Box className="cursor-pointer">
+                <RecordingIcon />
+              </Box>
+            </AttachPopover>
+
             <SettingDrawer />
           </HStack>
         </InputRightElement>

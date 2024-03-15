@@ -17,6 +17,7 @@ import { useForm } from "react-hook-form";
 import { object } from "yup";
 import { SettingForm } from "../setting-form";
 import { SettingFormType, settingFormSchema } from "../setting-form/schema";
+import { Box } from "@components/atoms/Box";
 type SettingForm = {
   form: SettingFormType;
 };
@@ -37,15 +38,15 @@ export const SettingDrawer = () => {
 
   const onSubmit = (data: SettingForm) => {
     console.log(data);
-    // onClose();
+    onClose();
   };
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger>
-        <Button variant={"ghost"} className="px-0">
+        <Box className="cursor-pointer">
           <Setting2Icon />
-        </Button>
+        </Box>
       </DrawerTrigger>
       <DrawerContent className="max-h-[90%]">
         <DrawerHeader>

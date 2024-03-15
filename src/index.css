@@ -83,14 +83,25 @@
     height: calc(100dvh - 74px - 86px);
     overflow-y: auto;
   }
+  .inner-loader {
+    position: fixed;
+    top: 74px;
+    bottom: 86px;
+    left: 0;
+    right: 0;
+  }
 
   .main-paddding-bottom {
+    padding-bottom: calc(60px + 32px + 32px);
+  }
+  .main-paddding-bottom-attach-file {
     padding-bottom: calc(60px + 32px + 32px);
   }
 
   .promt-position-bottom {
     bottom: calc(12px + 86px);
   }
+
   .source-code {
     font-family: "Source Code Pro", monospace;
     font-optical-sizing: auto;

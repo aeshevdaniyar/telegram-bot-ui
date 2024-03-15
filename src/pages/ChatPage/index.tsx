@@ -10,7 +10,19 @@ import { FileResponseImage } from "@components/molecules/file";
 import { PageHeader } from "@components/organisms/page-header";
 import { PromtSearchPanel } from "@components/organisms/promt-search";
 import { ChatHeaderContent } from "@components/templates/chat-header-content";
+import { useLayout } from "@components/templates/layout";
+import { useEffect } from "react";
 const ChatPage = () => {
+  const { promtInputLayout, defaultLayout } = useLayout();
+
+  useEffect(() => {
+    promtInputLayout();
+
+    return () => {
+      defaultLayout();
+    };
+  }, [defaultLayout, promtInputLayout]);
+
   const codeBlock = `
   let cancelButton = document.getElementById("cancel-button"); 
   let sendButton = document.getElementById("send-button"); 

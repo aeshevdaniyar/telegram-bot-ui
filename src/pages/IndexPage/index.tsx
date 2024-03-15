@@ -1,17 +1,18 @@
 import { Page } from "@components/molecules/page";
+import { PageInner } from "@components/organisms/page-inner";
 import { Layout } from "@components/templates/layout";
 import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import ChatsPage from "../ChatsPage";
-import PlansPage from "../PlansPage";
-import RefsPage from "../RefsPage";
-import SettingPage from "../SettingPage";
-import TokensPage from "../TokensPage";
-import ChatPage from "../ChatPage";
 
 const ProfilePage = lazy(() => import("../ProfilePage"));
 const NaturalNetworksPage = lazy(() => import("../NaturalNetworksPage"));
 const AllAIPage = lazy(() => import("../AllAiPage"));
+const TokensPage = lazy(() => import("../TokensPage"));
+const RefsPage = lazy(() => import("../RefsPage"));
+const PlansPage = lazy(() => import("../PlansPage"));
+const ChatsPage = lazy(() => import("../ChatsPage"));
+const ChatPage = lazy(() => import("../ChatPage"));
+
 const IndexPage = () => {
   return (
     <Layout>
@@ -20,73 +21,65 @@ const IndexPage = () => {
         <Route
           path="profile/*"
           element={
-            <Page>
+            <PageInner>
               <ProfilePage />
-            </Page>
+            </PageInner>
           }
         />
         <Route
           path="natural-networks/*"
           element={
-            <Page>
+            <PageInner>
               <NaturalNetworksPage />
-            </Page>
+            </PageInner>
           }
         />
         <Route
           path="chats"
           element={
-            <Page>
+            <PageInner>
               <ChatsPage />
-            </Page>
+            </PageInner>
           }
         />
         <Route
           path="chats/:id"
           element={
-            <Page>
+            <PageInner>
               <ChatPage />
-            </Page>
+            </PageInner>
           }
         />
         <Route
           path="plans/*"
           element={
-            <Page>
+            <PageInner>
               <PlansPage />
-            </Page>
+            </PageInner>
           }
         />
         <Route
           path="all-ai/*"
           element={
-            <Page>
+            <PageInner>
               <AllAIPage />
-            </Page>
+            </PageInner>
           }
         />
         <Route
           path="refs/*"
           element={
-            <Page>
+            <PageInner>
               <RefsPage />
-            </Page>
-          }
-        />
-        <Route
-          path="setting/*"
-          element={
-            <Page>
-              <SettingPage />
-            </Page>
+            </PageInner>
           }
         />
         <Route
           path="tokens/*"
           element={
-            <Page>
+            <PageInner>
               <TokensPage />
-            </Page>
+            </PageInner>
           }
         />
       </Routes>
