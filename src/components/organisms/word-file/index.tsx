@@ -1,4 +1,4 @@
-import { DownloadIcon } from "@components/atoms/Icon";
+import { DownloadIcon, TrashIcon } from "@components/atoms/Icon";
 import { FileBase } from "@components/molecules/file-base";
 import WordFileIcon from "@assets/WordIcon.svg";
 import { FC } from "react";
@@ -10,7 +10,7 @@ export const WordFile: FC<WordFileProps> = (props) => {
   const onDownload = () => {};
   return (
     <FileBase
-      actionIcon={<DownloadIcon />}
+      actionIcon={type == "response" ? <DownloadIcon /> : <TrashIcon />}
       fileIcon={<img src={WordFileIcon} />}
       fileName="Word File"
       fileSize={22.0}

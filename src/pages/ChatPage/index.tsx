@@ -108,7 +108,17 @@ const ChatPage = () => {
       </Container>
       <HStack className="fixed justify-center promt-position-bottom left-0 right-0">
         <Container className="w-full">
-          <PromtSearchPanel />
+          <PromtSearchPanel
+            attachContent={
+              <Stack>
+                <AudioFile fileName="Медуза Matrang" type="request" />
+                <VideoFile type="request" />
+                <WordFile type="request" />
+                <TxtFile type="request" />
+                <ImageFile type="request" />
+              </Stack>
+            }
+          />
         </Container>
       </HStack>
     </PageHeader>

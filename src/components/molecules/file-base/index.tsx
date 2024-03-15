@@ -28,9 +28,7 @@ export const FileBase: FC<FileBaseProps> = (props) => {
         <HStack className="items-center">
           <HStack
             className={cn(
-              " min-w-11 h-11 items-center justify-center p-1.5 rounded-md [&>img]:w-full [&>img]:h-full",
-              type == "response" && "bg-muted",
-              type == "request" && "bg-white"
+              " min-w-11 h-11 items-center justify-center p-1.5 rounded-md [&>img]:w-full [&>img]:h-full bg-muted"
             )}
           >
             {fileIcon}

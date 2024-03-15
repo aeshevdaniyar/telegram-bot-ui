@@ -1,4 +1,4 @@
-import { DownloadIcon } from "@components/atoms/Icon";
+import { DownloadIcon, TrashIcon } from "@components/atoms/Icon";
 import { FileBase } from "@components/molecules/file-base";
 import VideoFileIcon from "@assets/VideoSquareIcon.svg";
 import { FC } from "react";
@@ -10,7 +10,7 @@ export const VideoFile: FC<VideoFileProps> = (props) => {
   const onDownload = () => {};
   return (
     <FileBase
-      actionIcon={<DownloadIcon />}
+      actionIcon={type == "response" ? <DownloadIcon /> : <TrashIcon />}
       fileIcon={<img src={VideoFileIcon} />}
       fileName="Видео с тигром"
       fileSize={22.0}
