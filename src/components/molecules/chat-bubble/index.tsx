@@ -36,7 +36,7 @@ export const ChatBubble: FC<ChatBubbleProps> = ({
 
       <Avatar
         className={cn(
-          "absolute bottom-0  translate-y-2/4 w-16 h-16 rounded-2xl",
+          "absolute bottom-0  translate-y-2/4 w-16 h-16 rounded-2xl z-10",
           type == "request" && "right-4",
           type == "response" && "left-4"
         )}
@@ -45,7 +45,7 @@ export const ChatBubble: FC<ChatBubbleProps> = ({
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
       {type == "request" && (
-        <HStack className="absolute gap-3 bottom-0 translate-y-full pt-2">
+        <HStack className="absolute gap-3 bottom-0 left-0 translate-y-full pt-2">
           <Text size={"sm"} className="text-secondary/50 font-sans">
             {formatDistance(date, new Date(), {
               locale: ru,

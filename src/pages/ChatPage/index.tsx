@@ -2,8 +2,9 @@ import ChatGPTLogo from "@assets/ChatGPTOutlineLogo.svg";
 import { CodeBlock } from "@components/atoms/CodeBlock";
 import { HStack } from "@components/atoms/HStack";
 import { ShareIcon } from "@components/atoms/Icon";
-import { Progress } from "@components/atoms/Progess";
 import { Stack } from "@components/atoms/Stack";
+import { BotLoader } from "@components/molecules/bot-loader";
+import { BotProgress } from "@components/molecules/bot-progress";
 import { ChatBubble } from "@components/molecules/chat-bubble";
 import { Container } from "@components/molecules/container";
 
@@ -78,7 +79,6 @@ const ChatPage = () => {
                 <WordFile type="response" />
                 <TxtFile type="response" />
                 <ImageFile type="response" />
-                <Progress value={32} />
               </Stack>
             }
           />
@@ -88,6 +88,28 @@ const ChatPage = () => {
             text="Ваше аудио было успешно создано. Вы можете дополнительно настроить его или просто загрузить для использования."
             type="response"
             attachContent={<CodeBlock code={codeBlock} />}
+          />
+          <ChatBubble
+            avatarImg={ChatGPTLogo}
+            date={new Date()}
+            text=""
+            type="response"
+            attachContent={
+              <Stack>
+                <BotProgress text="Дождитесь окончания генерации" value={33} />
+              </Stack>
+            }
+          />
+          <ChatBubble
+            avatarImg={ChatGPTLogo}
+            date={new Date()}
+            text=""
+            type="response"
+            attachContent={
+              <Stack>
+                <BotLoader />
+              </Stack>
+            }
           />
           <ChatBubble
             avatarImg={ChatGPTLogo}
@@ -106,19 +128,9 @@ const ChatPage = () => {
           />
         </Stack>
       </Container>
-      <HStack className="fixed justify-center promt-position-bottom left-0 right-0">
+      <HStack className="fixed justify-center promt-position-bottom left-0 right-0 z-20">
         <Container className="w-full">
-          <PromtSearchPanel
-            attachContent={
-              <Stack>
-                <AudioFile fileName="Медуза Matrang" type="request" />
-                <VideoFile type="request" />
-                <WordFile type="request" />
-                <TxtFile type="request" />
-                <ImageFile type="request" />
-              </Stack>
-            }
-          />
+          <PromtSearchPanel />
         </Container>
       </HStack>
     </PageHeader>
