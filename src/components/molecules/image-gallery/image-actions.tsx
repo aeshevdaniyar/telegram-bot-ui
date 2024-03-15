@@ -5,7 +5,7 @@ import { ImportIcon } from "@components/atoms/Icon";
 export const ImageActions = () => {
   return (
     <HStack className="absolute right-0 left-0 bottom-0 p-1 md:p-4 w-full gap-1 md:gap-2">
-      <Button className="w-full p-0 shrink text-[8px] md:text-sm">
+      <Button className="w-full p-0 shrink text-[10px] md:text-sm">
         Сделать похожую
       </Button>
       <Button
