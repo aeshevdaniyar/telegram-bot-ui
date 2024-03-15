@@ -49,6 +49,7 @@ export default {
         76: "296px",
         78: "300px",
         78.5: "302px",
+        "share-modal": "624px",
       },
       keyframes: {
         "accordion-down": {

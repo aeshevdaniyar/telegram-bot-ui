@@ -17,6 +17,7 @@ import { AudioFile } from "@components/organisms/audio-file";
 import { ImageFile } from "@components/organisms/image-file";
 import { PageHeader } from "@components/organisms/page-header";
 import { PromtSearchPanel } from "@components/organisms/promt-search";
+import { ShareChat } from "@components/organisms/share-chat";
 import { TxtFile } from "@components/organisms/txt-file";
 import { VideoFile } from "@components/organisms/video-file";
 import { WordFile } from "@components/organisms/word-file";
@@ -47,7 +48,11 @@ const ChatPage = () => {
         <ChatHeaderContent
           aiLogo={ChatGPTLogo}
           aiName="ChatGPT 4"
-          rightElement={<ShareIcon />}
+          rightElement={
+            <ShareChat shareContent={<></>}>
+              <ShareIcon />
+            </ShareChat>
+          }
         />
       }
     >

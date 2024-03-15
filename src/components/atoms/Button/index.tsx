@@ -12,7 +12,8 @@ const buttonVariants = cva(
           "bg-primary border-transparent border-2 hover:bg-primary/90 active:shadow-inner  active:border-blue",
         filled:
           "bg-primary border-transparent border-2 hover:bg-primary/90 active:shadow-inner  active:border-blue",
-        outline: "border-2 border-secondary-foreground text-foreground",
+        outline:
+          "border-2 border-secondary-foreground text-foreground hover:bg-secondary-foreground active:shadow-inner",
         ghost: "text-black",
         secondary: "bg-secondary-foreground text-foreground",
       },

@@ -15,12 +15,21 @@ const ChatsPage = () => {
     <PageHeader pageContent={<BaseHeaderContent title="Диалоги" />}>
       <Container>
         <Stack className="gap-3">
-          <HStack className="gap-6 flex-col md:flex-row">
-            <Button className="w-full" leftIcon={<PlusIcon />}>
+          <HStack className="gap-3 md:gap-6 items-center">
+            <Button
+              className="w-full rounded-md py-2 md:py-2.5"
+              leftIcon={<PlusIcon />}
+            >
               Новый чат
             </Button>
-            <Button className="w-full" leftIcon={<FolderAddIcon />}>
+            <Button
+              className="w-full hidden md:inline-flex rounded-md"
+              leftIcon={<FolderAddIcon />}
+            >
               Новая группа
+            </Button>
+            <Button className="md:hidden min-w-11 h-11 p-0 rounded-md">
+              <FolderAddIcon />
             </Button>
           </HStack>
           <Input placeholder="Поиск" />
