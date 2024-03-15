@@ -8,7 +8,7 @@
   background: #fff;
   box-shadow: -16px 0 #fff, 16px 0 #fff;
   box-sizing: border-box;
-  animation: shadowPulse 2s linear infinite;
+  animation: shadowPulse 1s linear infinite;
 }
 
 @keyframes shadowPulse {

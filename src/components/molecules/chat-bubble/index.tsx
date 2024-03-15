@@ -51,7 +51,7 @@ export const ChatBubble: FC<ChatBubbleProps> = ({
               locale: ru,
             })}
           </Text>
-          <Button variant={"secondary"} className="py-0.5 px-2 text-sm">
+          <Button variant={"secondary"} className="py-0.5 px-2 text-sm rounded-md">
             Редактировать
           </Button>
         </HStack>

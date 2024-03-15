@@ -7,6 +7,8 @@ import { BotLoader } from "@components/molecules/bot-loader";
 import { BotProgress } from "@components/molecules/bot-progress";
 import { ChatBubble } from "@components/molecules/chat-bubble";
 import { Container } from "@components/molecules/container";
+import { ImageGallery } from "@components/molecules/image-gallery";
+import { Image } from "@components/molecules/image-gallery/image";
 
 import { AudioFile } from "@components/organisms/audio-file";
 import { ImageFile } from "@components/organisms/image-file";
@@ -48,6 +50,28 @@ const ChatPage = () => {
     >
       <Container>
         <Stack className="gap-20">
+          <ChatBubble
+            avatarImg={ChatGPTLogo}
+            date={new Date()}
+            text=""
+            type="response"
+            attachContent={
+              <ImageGallery>
+                <Image>
+                  <img src="https://github.com/shadcn.png" />
+                </Image>
+                <Image>
+                  <img src="https://github.com/shadcn.png" />
+                </Image>
+                <Image>
+                  <img src="https://github.com/shadcn.png" />
+                </Image>
+                <Image>
+                  <img src="https://github.com/shadcn.png" />
+                </Image>
+              </ImageGallery>
+            }
+          />
           <ChatBubble
             avatarImg="https://github.com/shadcn.png"
             date={new Date()}
@@ -111,6 +135,7 @@ const ChatPage = () => {
               </Stack>
             }
           />
+
           <ChatBubble
             avatarImg={ChatGPTLogo}
             date={new Date()}
