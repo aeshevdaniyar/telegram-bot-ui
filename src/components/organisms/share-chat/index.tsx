@@ -22,7 +22,7 @@ export const ShareChat: FC<ShareChatProps> = ({ children }) => {
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="rounded-xl  overflow-y-auto ">
+      <DialogContent className="rounded-xl overflow-y-auto h-full flex flex-col">
         <HStack className="bg-white items-center justify-between p-5 rounded-xl">
           <Text className="font-sans" size={"lg"}>
             Поделитесь ссылкой на чат
