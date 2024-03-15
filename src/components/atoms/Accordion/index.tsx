@@ -1,7 +1,10 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { MinusIcon, PlusIcon } from "../Icon";
+import { EditIcon, FolderIcon, PaperClipicon, Trash } from "../Icon";
+import { Box } from "../Box";
+import { HStack } from "../HStack";
 
 const Accordion = AccordionPrimitive.Root;
 
@@ -11,7 +14,7 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn("border-t borer-gra", className)}
+    className={cn(className, "mb-2")}
     {...props}
   />
 ));
@@ -21,18 +24,27 @@ const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
+  <AccordionPrimitive.Header className="flex ">
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex gap-8 w-full items-center justify-between py-6 font-medium transition-all hover:underline [&[data-state=open]>svg:nth-child(1)]:block [&[data-state=open]>svg:nth-child(2)]:hidden",
+        "flex flex-1 items-center pl-10 relative [&[data-state=closed]]:delay-200 [&[data-state=closed]]:rounded-b-xl text-white rounded-t-xl bg-[#777D80]  justify-between py-2 pr-3.5 font-medium transition-all [&[data-state=open]>svg]:rotate-180",
         className
       )}
       {...props}
     >
-      <MinusIcon className="hidden" />
-      <PlusIcon className="" />
-      <div className="w-full flex justify-start">{children}</div>
+      <Box className="absolute left-2 bg-none">
+        <FolderIcon />
+      </Box>
+
+      <HStack className="absolute right-9 bg-none">
+        <Trash />
+        <EditIcon />
+        <PaperClipicon />
+      </HStack>
+
+      {children}
+      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));
@@ -47,7 +59,7 @@ const AccordionContent = React.forwardRef<
     className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
-    <div className={cn("pb-4 pt-0 ml-14", className)}>{children}</div>
+    <div className={cn("pb-4 pt-0", className)}>{children}</div>
   </AccordionPrimitive.Content>
 ));
 
