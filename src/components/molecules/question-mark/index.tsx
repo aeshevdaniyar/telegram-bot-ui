@@ -4,6 +4,7 @@ import { PopoverTrigger } from "@radix-ui/react-popover";
 import { FC } from "react";
 export interface QuestionMarkProps {
   popoverText: string;
+  
 }
 export const QuestionMark: FC<QuestionMarkProps> = (props) => {
   const { popoverText } = props;
@@ -14,7 +15,7 @@ export const QuestionMark: FC<QuestionMarkProps> = (props) => {
           ?
         </HStack>
       </PopoverTrigger>
-      <PopoverContent>{popoverText}</PopoverContent>
+      <PopoverContent side="left">{popoverText}</PopoverContent>
     </Popover>
   );
 };

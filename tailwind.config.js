@@ -27,6 +27,7 @@ export default {
         },
         accent: {
           red: "#D84C10",
+          green: "#39A464",
         },
       },
       height: {

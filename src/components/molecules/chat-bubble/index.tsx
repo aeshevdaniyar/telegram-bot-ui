@@ -42,7 +42,7 @@ export const ChatBubble: FC<ChatBubbleProps> = ({
           type == "response" && "left-4"
         )}
       >
-        <Avatar className="w-16 h-16">
+        <Avatar className="w-16 h-16 rounded-xl">
           <AvatarImage src={avatarImg} />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>

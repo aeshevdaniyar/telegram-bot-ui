@@ -41,7 +41,7 @@ export const AudioFile: FC<AudioFileProps> = (props) => {
           <Swap
             offElement={<img src={PlayIcon} />}
             onElement={
-              <PauseCircleIcon className="w-full h-full text-primary" />
+              <PauseCircleIcon className="min-w-11 h-11 text-primary" />
             }
             value={isPlaying}
             onChange={onSwapClick}

@@ -14,22 +14,28 @@ const AllAiPage = () => {
             description="Популярная модель для работы с текстом. Есть выбор моделей GPT 3, GPT4 и GPT 4 turbo"
             imageLogo={ChatGptLogo}
             name="ChatGPT"
+            isNew
+            amount={100}
           />
           <NaturalnetworksListItem
             description="Популярная модель для работы с текстом. Есть выбор моделей GPT 3, GPT4 и GPT 4 turbo"
             imageLogo={ChatGptLogo}
             name="ChatGPT"
+            amount={100}
           />
           <NaturalnetworksListItem
             description="Популярная модель для работы с текстом. Есть выбор моделей GPT 3, GPT4 и GPT 4 turbo"
             imageLogo={ChatGptLogo}
             name="ChatGPT"
+            amount={100}
+            isNew
           />
 
           <NaturalnetworksListItem
             description="Популярная модель для работы с текстом. Есть выбор моделей GPT 3, GPT4 и GPT 4 turbo"
             imageLogo={ChatGptLogo}
             name="ChatGPT"
+            amount={100}
           />
 
           <Pagination

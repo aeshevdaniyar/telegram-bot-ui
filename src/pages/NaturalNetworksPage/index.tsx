@@ -24,6 +24,7 @@ const NeturalNetworksPage = () => {
               image={PhotoIcon}
               pageLink="/all-ai"
               title="Генерация картинок"
+               
             />
             <AITypeItem image={VideoIcon} pageLink="" title="Генерация видео" />
             <AITypeItem
