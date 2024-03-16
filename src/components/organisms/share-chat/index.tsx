@@ -31,7 +31,7 @@ export const ShareChat: FC<ShareChatProps> = ({ children }) => {
             <X />
           </DialogClose>
         </HStack>
-        <div className="px-5 ">
+        <div className="md:px-5">
           <Text className="font-normal text-[13px]">
             Сообщения, которые вы отправляете после создания ссылки, не будут
             опубликованы. Любой, у кого есть URL-адрес, сможет просматривать
