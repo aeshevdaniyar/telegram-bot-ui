@@ -125,6 +125,7 @@ const ChatPage = () => {
                 <ImageFile type="response" />
               </Stack>
             }
+            name="ChatGPT 3.5 Turbo"
           />
           <ChatBubble
             avatarImg={ChatGPTLogo}
@@ -132,6 +133,7 @@ const ChatPage = () => {
             text="Ваше аудио было успешно создано. Вы можете дополнительно настроить его или просто загрузить для использования."
             type="response"
             attachContent={<CodeBlock code={codeBlock} />}
+            name="ChatGPT 3.5 Turbo"
           />
           <ChatBubble
             avatarImg={ChatGPTLogo}
@@ -143,6 +145,7 @@ const ChatPage = () => {
                 <BotProgress text="Дождитесь окончания генерации" value={33} />
               </Stack>
             }
+            name="ChatGPT 3.5 Turbo"
           />
           <ChatBubble
             avatarImg={ChatGPTLogo}
@@ -154,6 +157,7 @@ const ChatPage = () => {
                 <BotLoader />
               </Stack>
             }
+            name="ChatGPT 3.5 Turbo"
           />
 
           <ChatBubble
@@ -170,6 +174,7 @@ const ChatPage = () => {
                 <ImageFile type="response" />
               </>
             }
+            name="ChatGPT 3.5 Turbo"
           />
           <BotError>
             <HStack className="flex-col md:flex-row">

@@ -14,12 +14,14 @@ export interface ChatBubbleProps {
   date: Date;
   type: "request" | "response";
   attachContent?: ReactNode;
+  name?: string;
 }
 export const ChatBubble: FC<ChatBubbleProps> = ({
   avatarImg,
   text,
   date,
   type,
+  name,
   attachContent,
 }) => {
   return (
@@ -33,17 +35,20 @@ export const ChatBubble: FC<ChatBubbleProps> = ({
         {attachContent}
         <Text className="font-normal">{text}</Text>
       </Stack>
-
-      <Avatar
+      <HStack
         className={cn(
-          "absolute bottom-0  translate-y-2/4 w-16 h-16 rounded-2xl z-10",
+          "absolute bottom-0  translate-y-2/4  rounded-2xl z-10 w-max items-end",
           type == "request" && "right-4",
           type == "response" && "left-4"
         )}
       >
-        <AvatarImage src={avatarImg} />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
+        <Avatar className="w-16 h-16">
+          <AvatarImage src={avatarImg} />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+        {name && <Text className="text-[15px] font-medium ">{name}</Text>}
+      </HStack>
+
       {type == "request" && (
         <HStack className="absolute gap-3 bottom-0 left-0 translate-y-full pt-2">
           <Text size={"sm"} className="text-secondary/50 font-sans">
@@ -51,7 +56,10 @@ export const ChatBubble: FC<ChatBubbleProps> = ({
               locale: ru,
             })}
           </Text>
-          <Button variant={"secondary"} className="py-0.5 px-2 text-sm rounded-md">
+          <Button
+            variant={"secondary"}
+            className="py-0.5 px-2 text-sm rounded-md"
+          >
             Редактировать
           </Button>
         </HStack>

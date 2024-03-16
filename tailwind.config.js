@@ -10,6 +10,7 @@ export default {
       colors: {
         primary: {
           DEFAULT: "#AC6AFF",
+          foreground: "#B173FF",
         },
         secondary: {
           DEFAULT: "#6C7275",
@@ -41,6 +42,10 @@ export default {
         76: "278px",
         76.5: "280px",
       },
+      transitionDuration: {
+        20: "3500ms",
+      },
+
       width: {
         46: "180px",
       },
@@ -71,5 +76,5 @@ export default {
     },
   },
   // eslint-disable-next-line no-undef
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("tailwindcss-animated")],
 };

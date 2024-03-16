@@ -63,7 +63,7 @@ export const ShareChat: FC<ShareChatProps> = ({ children }) => {
                 }
               />
             </Stack>
-            <Box className="bg-[#747A7D] h-[74px] rounded-b-lg">
+            <Box className="bg-[#747A7D] h-[74px] rounded-b-xl">
               <Stack className="h-full w-full justify-between p-4.5">
                 <Text className="font-sans font-medium text-white">
                   Посевгазона: руководство.

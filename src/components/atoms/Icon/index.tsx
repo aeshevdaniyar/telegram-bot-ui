@@ -1058,28 +1058,28 @@ export const AudioSquare: React.FC<IconProps> = ({
     >
       <path
         d="M16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25Z"
-        stroke="#6C7275"
+        stroke={color}
         stroke-width="1.125"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M7.215 12.9749C8.09313 12.9749 8.80499 12.2631 8.80499 11.3849C8.80499 10.5068 8.09313 9.79492 7.215 9.79492C6.33686 9.79492 5.625 10.5068 5.625 11.3849C5.625 12.2631 6.33686 12.9749 7.215 12.9749Z"
-        stroke="#6C7275"
+        stroke={color}
         stroke-width="1.125"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M8.80518 11.3846V5.82715"
-        stroke="#6C7275"
+        stroke={color}
         stroke-width="1.125"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M9.84769 5.07708L11.6027 5.66206C12.0302 5.80456 12.3752 6.28455 12.3752 6.73455V7.19955C12.3752 7.80705 11.9027 8.14455 11.3327 7.94955L9.5777 7.36457C9.1502 7.22207 8.80518 6.74208 8.80518 6.29208V5.82708C8.80518 5.22708 9.27019 4.88208 9.84769 5.07708Z"
-        stroke="#6C7275"
+        stroke={color}
         stroke-width="1.125"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -1104,14 +1104,14 @@ export const VideoSquare: React.FC<IconProps> = ({
     >
       <path
         d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z"
-        stroke="#6C7275"
+        stroke={color}
         stroke-width="1.125"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M6.8252 9.0006V7.8906C6.8252 6.4581 7.8377 5.8806 9.0752 6.5931L10.0352 7.1481L10.9952 7.7031C12.2327 8.4156 12.2327 9.5856 10.9952 10.2981L10.0352 10.8531L9.0752 11.4081C7.8377 12.1206 6.8252 11.5356 6.8252 10.1106V9.0006Z"
-        stroke="#6C7275"
+        stroke={color}
         stroke-width="1.125"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -1137,13 +1137,13 @@ export const CameraIcon: React.FC<IconProps> = ({
     >
       <path
         d="M2.25 7.64089C2.25 5.85215 3.70006 4.40209 5.4888 4.40209V4.40209C5.81727 4.40209 6.13349 4.27732 6.37346 4.05301L6.6 3.84126C6.84755 3.60986 6.97133 3.49416 7.10627 3.40065C7.3913 3.20313 7.71813 3.07417 8.06123 3.02383C8.22367 3 8.3931 3 8.73195 3H9H9.26805C9.6069 3 9.77633 3 9.93877 3.02383C10.2819 3.07417 10.6087 3.20313 10.8937 3.40065C11.0287 3.49416 11.1524 3.60986 11.4 3.84126L11.6265 4.05301C11.8665 4.27732 12.1827 4.40209 12.5112 4.40209V4.40209C14.2999 4.40209 15.75 5.85215 15.75 7.64089V10.4982C15.75 12.2509 15.75 13.1272 15.3951 13.7905C15.1156 14.3127 14.6877 14.7406 14.1655 15.0201C13.5022 15.375 12.6259 15.375 10.8732 15.375H7.12685C5.37413 15.375 4.49777 15.375 3.83453 15.0201C3.31225 14.7406 2.88441 14.3127 2.60492 13.7905C2.25 13.1272 2.25 12.2509 2.25 10.4982V7.64089Z"
-        stroke="#6C7275"
+        stroke={color}
         stroke-width="1.05"
       />
-      <circle cx="9" cy="9.75" r="2.25" stroke="#6C7275" stroke-width="1.05" />
+      <circle cx="9" cy="9.75" r="2.25" stroke={color} stroke-width="1.05" />
       <path
         d="M12 6.75H12.75"
-        stroke="#6C7275"
+        stroke={color}
         stroke-width="1.05"
         stroke-linecap="round"
       />
@@ -1298,6 +1298,128 @@ export const PaperClipicon = () => {
         d="M10.1136 9.99902V12.9157C10.1136 14.524 11.4219 15.8324 13.0303 15.8324C14.6386 15.8324 15.9469 14.524 15.9469 12.9157V8.33236C15.9469 5.10736 13.3386 2.49902 10.1136 2.49902C6.88861 2.49902 4.28027 5.10736 4.28027 8.33236V13.3324C4.28027 16.0907 6.52194 18.3324 9.28027 18.3324"
         stroke="white"
         stroke-width="1.25"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const MagicStarIcon: React.FC<IconProps> = ({
+  color = "currentColor",
+  ...attributes
+}) => {
+  return (
+    <svg
+      width="18"
+      height="19"
+      viewBox="0 0 18 19"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      color={color}
+      {...attributes}
+    >
+      <path
+        d="M12.9677 3.60573L12.9152 6.44821C12.9077 6.83821 13.1552 7.35573 13.4702 7.58823L15.3302 8.99821C16.5227 9.89821 16.3277 11.0007 14.9027 11.4507L12.4802 12.2082C12.0752 12.3357 11.6477 12.7782 11.5427 13.1907L10.9652 15.3957C10.5077 17.1357 9.36768 17.3082 8.42268 15.7782L7.10268 13.6407C6.86268 13.2507 6.29268 12.9582 5.84268 12.9807L3.33771 13.1082C1.54521 13.1982 1.0352 12.1632 2.2052 10.7982L3.69019 9.07321C3.96769 8.75071 4.09518 8.15072 3.96768 7.74572L3.21022 5.32321C2.76772 3.89821 3.56271 3.11072 4.98021 3.57572L7.19272 4.30322C7.56772 4.42322 8.13021 4.34072 8.44521 4.10822L10.7552 2.44321C12.0002 1.54321 12.9977 2.06823 12.9677 3.60573Z"
+        stroke="#B173FF"
+        stroke-width="1.125"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M16.4326 17L14.1602 14.7275"
+        stroke="#B173FF"
+        stroke-width="1.125"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const MessageQuestionIcon: React.FC<IconProps> = ({
+  color = "currentColor",
+  ...attributes
+}) => {
+  return (
+    <svg
+      width="18"
+      height="19"
+      viewBox="0 0 18 19"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      color={color}
+      {...attributes}
+    >
+      <path
+        d="M12.75 14.3223H9.75L6.41249 16.5423C5.91749 16.8723 5.25 16.5198 5.25 15.9198V14.3223C3 14.3223 1.5 12.8223 1.5 10.5723V6.07227C1.5 3.82227 3 2.32227 5.25 2.32227H12.75C15 2.32227 16.5 3.82227 16.5 6.07227V10.5723C16.5 12.8223 15 14.3223 12.75 14.3223Z"
+        stroke="#B173FF"
+        stroke-width="1.125"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.99986 9.02051V8.86304C8.99986 8.35304 9.31488 8.08302 9.62988 7.86552C9.93738 7.65552 10.2448 7.38553 10.2448 6.89053C10.2448 6.20053 9.68986 5.64551 8.99986 5.64551C8.30986 5.64551 7.75488 6.20053 7.75488 6.89053"
+        stroke="#B173FF"
+        stroke-width="1.125"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.99662 10.8125H9.00337"
+        stroke="#B173FF"
+        stroke-width="1.125"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const MessageProgrammingIcon: React.FC<IconProps> = ({
+  color = "currentColor",
+  ...attributes
+}) => {
+  return (
+    <svg
+      width="18"
+      height="19"
+      viewBox="0 0 18 19"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      color={color}
+      {...attributes}
+    >
+      <path
+        d="M6.375 14.7275H6C3 14.7275 1.5 13.9775 1.5 10.2275V6.47754C1.5 3.47754 3 1.97754 6 1.97754H12C15 1.97754 16.5 3.47754 16.5 6.47754V10.2275C16.5 13.2275 15 14.7275 12 14.7275H11.625C11.3925 14.7275 11.1675 14.8401 11.025 15.0276L9.90001 16.5276C9.40501 17.1876 8.59499 17.1876 8.09999 16.5276L6.97499 15.0276C6.85499 14.8626 6.585 14.7275 6.375 14.7275Z"
+        stroke="#B173FF"
+        stroke-width="1.125"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M6 7.02539L4.5 8.52539L6 10.0254"
+        stroke="#B173FF"
+        stroke-width="1.125"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M12 7.02539L13.5 8.52539L12 10.0254"
+        stroke="#B173FF"
+        stroke-width="1.125"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M9.75 6.77734L8.25 10.2724"
+        stroke="#B173FF"
+        stroke-width="1.125"
+        stroke-miterlimit="10"
         stroke-linecap="round"
         stroke-linejoin="round"
       />

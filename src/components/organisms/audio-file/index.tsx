@@ -1,22 +1,22 @@
-import { FileCard } from "@components/atoms/FileCard";
-import { FC } from "react";
-import AudioFileIcon from "@assets/AudioFileIcon.svg";
-import { HStack } from "@components/atoms/HStack";
+import testAudio from "@assets/traimory-mega-horn-angry-siren-f-cinematic-trailer-sound-effects-193408.mp3";
 import { Box } from "@components/atoms/Box";
+import { FileCard } from "@components/atoms/FileCard";
+import { HStack } from "@components/atoms/HStack";
 import { Stack } from "@components/atoms/Stack";
 import { Text } from "@components/atoms/Text";
+import { FC } from "react";
 export interface AudioFileProps {
   type: "request" | "response";
   fileName: string;
 }
 export const AudioFile: FC<AudioFileProps> = (props) => {
   const { type, fileName } = props;
+  console.log(testAudio);
+
   return (
     <FileCard type={type}>
       <HStack>
-        <Box className="min-w-11 h-11 rounded-full">
-          <img src={AudioFileIcon} className="w-full h-full" />
-        </Box>
+        <Box className="min-w-11 h-11 rounded-full"></Box>
         <Stack className="w-full gap-2.5">
           <HStack className="justify-between items-center">
             <Text className="font-normal">{fileName}</Text>

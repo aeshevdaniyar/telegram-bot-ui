@@ -41,11 +41,9 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = (props) => {
         />
         <InputRightElement>
           <HStack className="items-center justify-center">
-            <AttachPopover side="right">
-              <Box className="cursor-pointer">
-                <RecordingIcon />
-              </Box>
-            </AttachPopover>
+            <Box className="cursor-pointer">
+              <RecordingIcon />
+            </Box>
 
             <SettingDrawer />
           </HStack>
