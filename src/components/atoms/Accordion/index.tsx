@@ -37,7 +37,12 @@ const AccordionTrigger = React.forwardRef<
         <FolderIcon />
       </Box>
 
-      <HStack className="absolute right-9 bg-none">
+      <HStack
+        className="absolute right-9 bg-none z-50"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <Trash />
         <EditIcon />
         <PaperClipicon />
