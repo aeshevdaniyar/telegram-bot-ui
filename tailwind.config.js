@@ -43,7 +43,7 @@ export default {
         76.5: "280px",
       },
       transitionDuration: {
-        20: "3500ms",
+        20: "10000ms",
       },
 
       width: {

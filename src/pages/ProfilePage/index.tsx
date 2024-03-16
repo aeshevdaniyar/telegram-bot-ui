@@ -168,13 +168,17 @@ const AdModalContent = () => {
     <>
       <Text className="text-2xl text-white">Безлимит ChatGPT 3.5 Tubo</Text>
       <Box className="w-full flex justify-center">
-        <Box className="w-full">
+        <Box className="w-full relative">
+          <div className="absolute top-0 left-2/4 -translate-x-2/4 -z-10 trnas filter blur-2xl bg-white w-52 h-52 rounded-full" />
           <Box className="flex w-full relative justify-center animate-jump-in h-36 md:h-56">
             <img src={StarIcon} className="animate-spin duration-20 " />
+
             <Box className="absolute top-6 md:top-14">
               <Stack className="gap-0">
-                <Text className="text-primary text-2xl md:text-5xl">3</Text>
-                <Text className="text-primary text-lg md:text-2xl leading-none">
+                <Text className="text-primary font-bold  text-2xl md:text-5xl">
+                  3
+                </Text>
+                <Text className="text-primary font-medium text-lg md:text-2xl leading-none">
                   дня
                 </Text>
               </Stack>
@@ -207,7 +211,8 @@ const NotEnoughTokenModalContent = () => {
   return (
     <>
       <Box className="w-full flex justify-center">
-        <Box className="w-full">
+        <Box className="w-full relative">
+          <div className="absolute top-4 left-2/4 -translate-x-2/4 -z-10 trnas filter blur-2xl bg-white w-52 h-52 rounded-full" />
           <Box className="flex w-full relative justify-center animate-jump-in h-36 md:h-56">
             <img src={StarIcon} className="animate-spin duration-20 " />
             <Box className="absolute top-8 md:top-16">
