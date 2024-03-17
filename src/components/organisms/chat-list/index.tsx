@@ -1,41 +1,50 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@components/atoms/Accordion";
-import { Box } from "@components/atoms/Box";
-import { ChatListItem } from "@components/molecules/chat-list-item";
+import { Stack } from "@components/atoms/Stack";
+import { FC } from "react";
+import "react-nestable/dist/styles/index.css";
+import { ChatFolder } from "./chat-folder";
+import { ChatListItem } from "./chat-list-item";
+import { ChatFile } from "./types";
+interface ChatListProps {
+  chats: ChatFile[];
+  onNewChat: (id: string) => void;
+  onEditFolder: (data: { id: string; name: string }) => void;
+  deleteFolder: (id: string) => void;
+  attachFile: (id: string) => void;
+}
+export const ChatList: FC<ChatListProps> = (props) => {
+  const { chats, onNewChat, onEditFolder, attachFile, deleteFolder } = props;
 
-export const ChatList = () => {
   return (
-    <Box>
-      <Accordion type="multiple" className="w-full">
-        <AccordionItem value="item-1">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>
-            <ChatListItem type="odd" />
-            <ChatListItem type="even" />
-            <ChatListItem type="odd" isLast />
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-2">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>
-            <ChatListItem type="odd" />
-            <ChatListItem type="even" />
-            <ChatListItem type="odd" isLast />
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-3">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>
-            <ChatListItem type="odd" />
-            <ChatListItem type="even" />
-            <ChatListItem type="odd" isLast />
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-    </Box>
+    <Stack>
+      {chats.map(({ type, name, id, children }) => {
+        if (type == "folder") {
+          return (
+            <ChatFolder
+              key={id}
+              name={name}
+              id={id}
+              onNewChat={onNewChat}
+              onEditFolder={onEditFolder}
+              attachFile={attachFile}
+              deleteFolder={deleteFolder}
+            >
+              {children.map(({ name, id, type }, index, arr) => {
+                return (
+                  <ChatListItem
+                    isLast={index == arr.length - 1}
+                    key={id}
+                    inFolder
+                    name={name}
+                    type={type}
+                  />
+                );
+              })}
+            </ChatFolder>
+          );
+        }
+
+        return <ChatListItem name={name} type={type} />;
+      })}
+    </Stack>
   );
 };

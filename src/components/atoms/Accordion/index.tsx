@@ -1,10 +1,7 @@
-import * as React from "react";
+import { cn } from "@/lib/cn";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDown } from "lucide-react";
-import { cn } from "@/lib/cn";
-import { EditIcon, FolderIcon, PaperClipicon, Trash } from "../Icon";
-import { Box } from "../Box";
-import { HStack } from "../HStack";
+import * as React from "react";
 
 const Accordion = AccordionPrimitive.Root;
 
@@ -14,7 +11,7 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn(className, "mb-2")}
+    className={cn(className)}
     {...props}
   />
 ));
@@ -33,21 +30,6 @@ const AccordionTrigger = React.forwardRef<
       )}
       {...props}
     >
-      <Box className="absolute left-2 bg-none">
-        <FolderIcon />
-      </Box>
-
-      <HStack
-        className="absolute right-9 bg-none z-50"
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-      >
-        <Trash />
-        <EditIcon />
-        <PaperClipicon />
-      </HStack>
-
       {children}
       <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
     </AccordionPrimitive.Trigger>
@@ -70,4 +52,4 @@ const AccordionContent = React.forwardRef<
 
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };

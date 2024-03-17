@@ -1212,7 +1212,10 @@ export const ImportIcon: React.FC<IconProps> = ({
   );
 };
 
-export const Trash = () => {
+export const Trash: React.FC<IconProps> = ({
+  color = "currentColor",
+  ...attributes
+}) => {
   return (
     <svg
       width="20"
@@ -1220,6 +1223,8 @@ export const Trash = () => {
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      color={color}
+      {...attributes}
     >
       <path
         d="M17.501 4.98503C14.726 4.71003 11.9343 4.56836 9.15098 4.56836C7.50098 4.56836 5.85098 4.65169 4.20098 4.81836L2.50098 4.98503"
@@ -1260,7 +1265,10 @@ export const Trash = () => {
   );
 };
 
-export const EditIcon = () => {
+export const EditIcon: React.FC<IconProps> = ({
+  color = "currentColor",
+  ...attributes
+}) => {
   return (
     <svg
       width="21"
@@ -1268,6 +1276,8 @@ export const EditIcon = () => {
       viewBox="0 0 21 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      color={color}
+      {...attributes}
     >
       <path
         d="M5.18794 16.2676C4.67961 16.2676 4.20461 16.0926 3.86294 15.7676C3.42961 15.3593 3.22128 14.7426 3.29628 14.0759L3.60461 11.3759C3.66294 10.8676 3.97128 10.1926 4.32961 9.82594L11.1713 2.58427C12.8796 0.775936 14.6629 0.725936 16.4713 2.43427C18.2796 4.1426 18.3296 5.92594 16.6213 7.73427L9.77961 14.9759C9.42961 15.3509 8.77961 15.7009 8.27128 15.7843L5.58794 16.2426C5.44628 16.2509 5.32128 16.2676 5.18794 16.2676ZM13.8463 2.42594C13.2046 2.42594 12.6463 2.82594 12.0796 3.42594L5.23794 10.6759C5.07128 10.8509 4.87961 11.2676 4.84628 11.5093L4.53794 14.2093C4.50461 14.4843 4.57128 14.7093 4.72128 14.8509C4.87128 14.9926 5.09628 15.0426 5.37128 15.0009L8.05461 14.5426C8.29628 14.5009 8.69628 14.2843 8.86294 14.1093L15.7046 6.8676C16.7379 5.7676 17.1129 4.75094 15.6046 3.33427C14.9379 2.6926 14.3629 2.42594 13.8463 2.42594Z"
@@ -1285,7 +1295,10 @@ export const EditIcon = () => {
   );
 };
 
-export const PaperClipicon = () => {
+export const PaperClipicon: React.FC<IconProps> = ({
+  color = "currentColor",
+  ...attributes
+}) => {
   return (
     <svg
       width="21"
@@ -1293,6 +1306,8 @@ export const PaperClipicon = () => {
       viewBox="0 0 21 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      color={color}
+      {...attributes}
     >
       <path
         d="M10.1136 9.99902V12.9157C10.1136 14.524 11.4219 15.8324 13.0303 15.8324C14.6386 15.8324 15.9469 14.524 15.9469 12.9157V8.33236C15.9469 5.10736 13.3386 2.49902 10.1136 2.49902C6.88861 2.49902 4.28027 5.10736 4.28027 8.33236V13.3324C4.28027 16.0907 6.52194 18.3324 9.28027 18.3324"

@@ -2,10 +2,11 @@ import { cn } from "@/lib/cn";
 import { HStack } from "@components/atoms/HStack";
 import { FolderIcon } from "@components/atoms/Icon";
 import { Text } from "@components/atoms/Text";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 export interface ChatListItemProps {
   type?: "odd" | "even" | "default";
   isLast?: boolean;
+  leftIcon: ReactNode;
 }
 export const ChatListItem: FC<ChatListItemProps> = (props) => {
   const { type = "default", isLast = false } = props;
