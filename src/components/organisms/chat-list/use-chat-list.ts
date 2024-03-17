@@ -79,6 +79,12 @@ const reducer = (state: ChatState, action: ChatAction): ChatState => {
       };
     }
     case "attachFile": {
+      if (state.attached.includes(action.payload)) {
+        return {
+          ...state,
+          attached: [...state.attached.filter((id) => id != action.payload)],
+        };
+      }
       return {
         ...state,
         attached: [...state.attached, action.payload],
