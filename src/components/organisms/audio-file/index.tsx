@@ -6,36 +6,31 @@ import { Stack } from "@components/atoms/Stack";
 import Swap from "@components/atoms/Swap";
 import { Text } from "@components/atoms/Text";
 import { PauseCircleIcon } from "lucide-react";
-import { FC, useState } from "react";
-import useSound from "use-sound";
+import { FC } from "react";
+
+import { useAudio } from "react-use";
+import { formattedTime } from "./utils";
+import { AudioProgress } from "./progress";
 export interface AudioFileProps {
   type: "request" | "response";
   fileName: string;
 }
 export const AudioFile: FC<AudioFileProps> = (props) => {
   const { type, fileName } = props;
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [play, { pause }] = useSound(
-    "https://cdn.uppbeat.io/audio-files/b7c9c31af312304d2baa0b6434e93928/9b6a9328765c82b3c7ef068d9cd22bf3/105b9e81fff736a3a1a6e580ca93f019/STREAMING-pencil-writing-joshua-chivers-1-00-02.mp3",
-    {
-      onend() {
-        setIsPlaying(false);
-      },
-    }
-  );
+  const [audio, state, controls] = useAudio({
+    src: "https://cdn.pixabay.com/audio/2024/02/27/audio_b0df7463a4.mp3",
+  });
 
   const onSwapClick = () => {
-    if (isPlaying) {
-      pause();
-      setIsPlaying(false);
+    if (state.playing) {
+      controls.pause();
       return;
     }
-
-    play();
-    setIsPlaying(true);
+    controls.play();
   };
   return (
     <FileCard type={type}>
+      {audio}
       <HStack>
         <Box className="min-w-11 h-11 rounded-full">
           <Swap
@@ -43,7 +38,7 @@ export const AudioFile: FC<AudioFileProps> = (props) => {
             onElement={
               <PauseCircleIcon className="min-w-11 h-11 text-primary" />
             }
-            value={isPlaying}
+            value={state.playing}
             onChange={onSwapClick}
             rotate
           />
@@ -52,12 +47,10 @@ export const AudioFile: FC<AudioFileProps> = (props) => {
           <HStack className="justify-between items-center">
             <Text className="font-normal">{fileName}</Text>
             <Text className="font-normal" size={"xs"}>
-              12 секунд
+              {formattedTime(state.duration)}
             </Text>
           </HStack>
-          <Box className="h-0.5 bg-[#D9D9D9]">
-            <Box className="bg-primary w-full h-full" />
-          </Box>
+          <AudioProgress value={(state.time / state.duration) * 100} />
         </Stack>
       </HStack>
     </FileCard>
