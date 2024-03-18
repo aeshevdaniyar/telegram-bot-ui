@@ -1,11 +1,12 @@
+import { cn } from "@/lib/cn";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@components/atoms/Accordion";
-import { ChatFolder as ChatFolderType } from "./types";
-import { FC, MutableRefObject, ReactNode, useRef, useState } from "react";
+import { Box } from "@components/atoms/Box";
+import { Button } from "@components/atoms/Button";
 import { HStack } from "@components/atoms/HStack";
 import {
   EditIcon,
@@ -14,10 +15,8 @@ import {
   PlusIcon,
   Trash,
 } from "@components/atoms/Icon";
-import { Box } from "@components/atoms/Box";
-import { Button } from "@components/atoms/Button";
-import { cn } from "@/lib/cn";
-
+import { FC, MutableRefObject, ReactNode, useRef, useState } from "react";
+import { ChatFolder as ChatFolderType } from "./types";
 export interface ChatFolderProps extends Omit<ChatFolderType, "files"> {
   children: ReactNode;
   onNewChat: (id: string) => void;
@@ -58,9 +57,10 @@ export const ChatFolder: FC<ChatFolderProps> = (props) => {
   const onAttachFile = () => {
     attachFile(id);
   };
+
   return (
     <Accordion type="multiple" className="w-full">
-      <AccordionItem value="item-1">
+      <AccordionItem value="value-1">
         <AccordionTrigger>
           <form
             onSubmit={(e) => {
@@ -96,7 +96,7 @@ export const ChatFolder: FC<ChatFolderProps> = (props) => {
           >
             <Trash onClick={onDelete} />
             <EditIcon onClick={onEdit} />
-            <PaperClipicon onClick={onAttachFile}/>
+            <PaperClipicon onClick={onAttachFile} />
           </HStack>
         </AccordionTrigger>
         <AccordionContent>

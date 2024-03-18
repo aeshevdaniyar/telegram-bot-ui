@@ -1,9 +1,8 @@
 import { PageInner } from "@components/organisms/page-inner";
 import { Layout } from "@components/templates/layout";
-import { lazy, useEffect } from "react";
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import useSound from "use-sound";
-import testAudio from "@assets/traimory-mega-horn-angry-siren-f-cinematic-trailer-sound-effects-193408.mp3";
+
 const ProfilePage = lazy(() => import("../ProfilePage"));
 const NaturalNetworksPage = lazy(() => import("../NaturalNetworksPage"));
 const AllAIPage = lazy(() => import("../AllAiPage"));
@@ -14,10 +13,6 @@ const ChatsPage = lazy(() => import("../ChatsPage"));
 const ChatPage = lazy(() => import("../ChatPage"));
 
 const IndexPage = () => {
-  const sound = useSound(testAudio);
-  useEffect(() => {
-    console.log(sound);
-  }, []);
   return (
     <Layout>
       <Routes>

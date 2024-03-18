@@ -11,7 +11,6 @@ import { ChatList } from "@components/organisms/chat-list";
 import { useChatList } from "@components/organisms/chat-list/use-chat-list";
 import { PageHeader } from "@components/organisms/page-header";
 import { BaseHeaderContent } from "@components/templates/base-header-content";
-
 const ChatsPage = () => {
   const {
     createText,
@@ -58,32 +57,38 @@ const ChatsPage = () => {
             </Button>
           </HStack>
           <Input placeholder="Поиск" />
-          <Box className="px-3.5 ">
-            <Text className="text-secondary/75 font-sans text-md font-medium">
-              Закрепленные чаты
-            </Text>
-          </Box>
-          <ChatList
-            onNewChat={addFileToFolder}
-            chats={getAttachFiles()}
-            onEditFolder={changeFolderName}
-            deleteFolder={deleteFolder}
-            attachFile={attachFile}
-          />
-          <Box className="px-3.5 ">
-            <Text className="text-secondary/75 font-sans text-md font-medium">
-              Список чатов
-            </Text>
-          </Box>
-          <ChatList
-            onNewChat={addFileToFolder}
-            chats={getNotAttachedFiles()}
-            onEditFolder={changeFolderName}
-            deleteFolder={deleteFolder}
-            attachFile={attachFile}
-          />
+
+          <div>
+            <Box className="px-3.5 ">
+              <Text className="text-secondary/75 font-sans text-md font-medium">
+                Закрепленные чаты
+              </Text>
+            </Box>
+            <ChatList
+              onNewChat={addFileToFolder}
+              chats={getAttachFiles()}
+              onEditFolder={changeFolderName}
+              deleteFolder={deleteFolder}
+              attachFile={attachFile}
+            />
+          </div>
+          <div>
+            <Box className="px-3.5 ">
+              <Text className="text-secondary/75 font-sans text-md font-medium">
+                Список чатов
+              </Text>
+            </Box>
+            <ChatList
+              onNewChat={addFileToFolder}
+              chats={getNotAttachedFiles()}
+              onEditFolder={changeFolderName}
+              deleteFolder={deleteFolder}
+              attachFile={attachFile}
+            />
+          </div>
         </Stack>
       </Container>
+      q
     </PageHeader>
   );
 };

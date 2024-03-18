@@ -43,7 +43,7 @@ export const ChatList: FC<ChatListProps> = (props) => {
           );
         }
 
-        return <ChatListItem name={name} type={type} />;
+        return <ChatListItem key={id} name={name} type={type} />;
       })}
     </Stack>
   );
