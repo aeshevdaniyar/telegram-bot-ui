@@ -21,6 +21,8 @@ const ChatsPage = () => {
     deleteFolder,
     attachFile,
     getAttachFiles,
+    deleteFile,
+    editFile,
   } = useChatList();
 
   const onCreateFolder = () => {
@@ -70,6 +72,8 @@ const ChatsPage = () => {
               onEditFolder={changeFolderName}
               deleteFolder={deleteFolder}
               attachFile={attachFile}
+              onDeleteFile={deleteFile}
+              onEditFile={editFile}
             />
           </div>
           <div>
@@ -84,11 +88,12 @@ const ChatsPage = () => {
               onEditFolder={changeFolderName}
               deleteFolder={deleteFolder}
               attachFile={attachFile}
+              onDeleteFile={deleteFile}
+              onEditFile={editFile}
             />
           </div>
         </Stack>
       </Container>
-      q
     </PageHeader>
   );
 };

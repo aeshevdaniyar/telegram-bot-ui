@@ -10,19 +10,33 @@ interface ChatListProps {
   onEditFolder: (data: { id: string; name: string }) => void;
   deleteFolder: (id: string) => void;
   attachFile: (id: string) => void;
+  onDeleteFile: (data: { id: string; parentId: null | string }) => void;
+  onEditFile: (data: {
+    id: string;
+    name: string;
+    parentId: null | string;
+  }) => void;
 }
 export const ChatList: FC<ChatListProps> = (props) => {
-  const { chats, onNewChat, onEditFolder, attachFile, deleteFolder } = props;
+  const {
+    chats,
+    onNewChat,
+    onEditFolder,
+    attachFile,
+    deleteFolder,
+    onDeleteFile,
+    onEditFile,
+  } = props;
 
   return (
     <Stack>
-      {chats.map(({ type, name, id, children }) => {
+      {chats.map(({ type, name, id: parentId, children }) => {
         if (type == "folder") {
           return (
             <ChatFolder
-              key={id}
+              key={parentId}
               name={name}
-              id={id}
+              id={parentId}
               onNewChat={onNewChat}
               onEditFolder={onEditFolder}
               attachFile={attachFile}
@@ -36,6 +50,10 @@ export const ChatList: FC<ChatListProps> = (props) => {
                     inFolder
                     name={name}
                     type={type}
+                    id={id}
+                    onDeleteFile={onDeleteFile}
+                    onEditFile={onEditFile}
+                    parentId={parentId}
                   />
                 );
               })}
@@ -43,7 +61,17 @@ export const ChatList: FC<ChatListProps> = (props) => {
           );
         }
 
-        return <ChatListItem key={id} name={name} type={type} />;
+        return (
+          <ChatListItem
+            key={parentId}
+            id={parentId}
+            onDeleteFile={onDeleteFile}
+            onEditFile={onEditFile}
+            parentId={null}
+            name={name}
+            type={type}
+          />
+        );
       })}
     </Stack>
   );

@@ -28,6 +28,21 @@ type ChatAction =
   | {
       type: "attachFile";
       payload: string;
+    }
+  | {
+      type: "editFile";
+      payload: {
+        id: string;
+        name: string;
+        parentId: string | null;
+      };
+    }
+  | {
+      type: "deleteFile";
+      payload: {
+        id: string;
+        parentId: string | null;
+      };
     };
 
 interface ChatState {
@@ -73,6 +88,51 @@ const reducer = (state: ChatState, action: ChatAction): ChatState => {
         return id == action.payload.id;
       });
       chats[folderIndex].name = action.payload.name;
+      return {
+        ...state,
+        chats,
+      };
+    }
+    case "editFile": {
+      const chats = [...state.chats];
+      if (action.payload.parentId) {
+        const topID = chats.findIndex(
+          ({ id }) => id == action.payload.parentId
+        );
+        const innerID = chats[topID].children.findIndex(
+          ({ id }) => id == action.payload.id
+        );
+
+        chats[topID].children[innerID].name = action.payload.name;
+      } else {
+        const topID = chats.findIndex(({ id }) => id == action.payload.id);
+        chats[topID].name = action.payload.name;
+      }
+      return {
+        ...state,
+        chats,
+      };
+    }
+    case "deleteFile": {
+      const chats = [...state.chats];
+      if (action.payload.parentId) {
+        const topID = chats.findIndex(
+          ({ id }) => id == action.payload.parentId
+        );
+        const innerID = chats[topID].children.findIndex(
+          ({ id }) => id == action.payload.id
+        );
+
+        chats[topID].children.splice(innerID, 1);
+      }
+
+      if (!action.payload.parentId) {
+        const topID = chats.findIndex(
+          ({ id }) => id == action.payload.parentId
+        );
+        chats.splice(topID, 1);
+      }
+
       return {
         ...state,
         chats,
@@ -169,6 +229,24 @@ export const useChatList = () => {
     });
   };
 
+  const deleteFile = (data: { id: string; parentId: string | null }) => {
+    dispatch({
+      type: "deleteFile",
+      payload: data,
+    });
+  };
+
+  const editFile = (data: {
+    id: string;
+    parentId: string | null;
+    name: string;
+  }) => {
+    dispatch({
+      type: "editFile",
+      payload: data,
+    });
+  };
+
   return {
     chats: state.chats,
     createFolder,
@@ -180,6 +258,8 @@ export const useChatList = () => {
     attachFile,
     getAttachFiles,
     getNotAttachedFiles,
+    deleteFile,
+    editFile,
   };
 };
 
