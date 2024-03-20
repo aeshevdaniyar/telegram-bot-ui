@@ -65,9 +65,10 @@ export const ChatListItem: FC<ChatListItemProps> = ({
   return (
     <HStack
       className={cn(
-        "gap-2 px-2 py-2 items-center bg-white text-white relative",
+        "gap-2 px-2 py-2 items-center bg-white text-[#9CA3AF] relative transition-all",
         inFolder && "bg-[#E8ECEF]",
-        isLast && "rounded-b-lg"
+        isLast && "rounded-b-lg",
+        focused && "bg-[#777D80] text-white"
       )}
     >
       {type == "text" && <MessageIcon />}
@@ -81,7 +82,8 @@ export const ChatListItem: FC<ChatListItemProps> = ({
           value={value}
           className={cn(
             "bg-transparent font-sans font-semibold text-base text-[#9CA3AF]",
-            !focused && "pointer-events-none"
+            !focused && "pointer-events-none",
+            focused && " text-white"
           )}
           ref={inputRef}
           onChange={(e) => {
@@ -98,8 +100,8 @@ export const ChatListItem: FC<ChatListItemProps> = ({
           e.stopPropagation();
         }}
       >
-        <Trash onClick={onDelete} className="text-[#9CA3AF]" />
-        <EditIcon onClick={onEdit} className="text-[#9CA3AF]" />
+        <Trash onClick={onDelete} />
+        <EditIcon onClick={onEdit} />
       </HStack>
     </HStack>
   );

@@ -482,7 +482,7 @@ export const MessageIcon: React.FC<IconProps> = ({
     >
       <path
         d="M9.125 19H8.625C4.625 19 2.625 18 2.625 13V8C2.625 4 4.625 2 8.625 2H16.625C20.625 2 22.625 4 22.625 8V13C22.625 17 20.625 19 16.625 19H16.125C15.815 19 15.515 19.15 15.325 19.4L13.825 21.4C13.165 22.28 12.085 22.28 11.425 21.4L9.925 19.4C9.765 19.18 9.395 19 9.125 19Z"
-        stroke="#9CA3AF"
+        stroke={color}
         stroke-width="1.5"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -490,21 +490,21 @@ export const MessageIcon: React.FC<IconProps> = ({
       />
       <path
         d="M16.6215 11H16.6304"
-        stroke="#9CA3AF"
+        stroke={color}
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M12.6205 11H12.6295"
-        stroke="#9CA3AF"
+        stroke={color}
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M8.61951 11H8.62849"
-        stroke="#9CA3AF"
+        stroke={color}
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
