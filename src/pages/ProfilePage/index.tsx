@@ -1,3 +1,4 @@
+import StarIcon from "@assets/star.svg";
 import { Avatar, AvatarFallback, AvatarImage } from "@components/atoms/Avatar";
 import { Box } from "@components/atoms/Box";
 import { Button } from "@components/atoms/Button";
@@ -20,7 +21,6 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@components/templates/global-dialog";
-import StarIcon from "@assets/star.svg";
 import { X } from "lucide-react";
 const ProfilePage = () => {
   return (
