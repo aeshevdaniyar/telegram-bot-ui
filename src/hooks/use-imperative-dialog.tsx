@@ -35,7 +35,7 @@ const DeleteDialog: FC<DeleteDialogProps> = (props) => {
         onCancel();
       }}
     >
-      <DialogContent className="sm:max-w-[425px] bg-white">
+      <DialogContent className="max-w-[300px] sm:md:max-w-[375px] md:max-w-[425px] bg-white">
         <DialogHeader>
           <DialogTitle>{heading}</DialogTitle>
           <DialogDescription>{text}</DialogDescription>
