@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { ChatFile } from "./types";
+import { ChatFile, Reorder } from "./types";
+import { reorder } from "./utils";
 type ChatAction =
   | {
       type: "createFolder";
@@ -43,24 +44,33 @@ type ChatAction =
         id: string;
         parentId: string | null;
       };
+    }
+  | {
+      type: "reorder";
+      payload: Reorder;
     };
 
 interface ChatState {
   chats: ChatFile[];
   attached: string[];
+  chatList: string[];
 }
 const reducer = (state: ChatState, action: ChatAction): ChatState => {
   switch (action.type) {
     case "createFolder": {
+      const folder = createChatFolderBlank(action.payload);
       return {
         ...state,
-        chats: [...state.chats, createChatFolderBlank(action.payload)],
+        chats: [...state.chats, folder],
+        chatList: [...state.chatList, folder.id],
       };
     }
     case "createText": {
+      const text = createChatTextBlank(action.payload);
       return {
         ...state,
-        chats: [...state.chats, createChatTextBlank(action.payload)],
+        chats: [...state.chats, text],
+        chatList: [...state.chatList, text.id],
       };
     }
     case "addFileToFolder": {
@@ -80,6 +90,8 @@ const reducer = (state: ChatState, action: ChatAction): ChatState => {
       return {
         ...state,
         chats: [...state.chats.filter(({ id }) => id != action.payload)],
+        chatList: [...state.chatList.filter((id) => id != action.payload)],
+        attached: [...state.attached.filter((id) => id != action.payload)],
       };
     }
     case "changeFolderName": {
@@ -130,7 +142,19 @@ const reducer = (state: ChatState, action: ChatAction): ChatState => {
         const topID = chats.findIndex(
           ({ id }) => id == action.payload.parentId
         );
+
         chats.splice(topID, 1);
+
+        return {
+          ...state,
+          chats,
+          chatList: [
+            ...state.chatList.filter((id) => id != action.payload.parentId),
+          ],
+          attached: [
+            ...state.attached.filter((id) => id != action.payload.parentId),
+          ],
+        };
       }
 
       return {
@@ -138,16 +162,90 @@ const reducer = (state: ChatState, action: ChatAction): ChatState => {
         chats,
       };
     }
+
     case "attachFile": {
       if (state.attached.includes(action.payload)) {
         return {
           ...state,
           attached: [...state.attached.filter((id) => id != action.payload)],
+          chatList: [...state.chatList, action.payload],
         };
       }
       return {
         ...state,
         attached: [...state.attached, action.payload],
+        chatList: [...state.chatList.filter((id) => id != action.payload)],
+      };
+    }
+
+    case "reorder": {
+      if (
+        action.payload.source.droppableId ==
+          action.payload.destination.droppableId &&
+        action.payload.source.droppableId == "attached"
+      ) {
+        const attached = reorder(
+          [...state.attached],
+          action.payload.source.index,
+          action.payload.destination.index
+        );
+
+        return { ...state, attached };
+      }
+
+      if (
+        action.payload.source.droppableId ==
+          action.payload.destination.droppableId &&
+        action.payload.source.droppableId == "chats"
+      ) {
+        const chatList = reorder(
+          [...state.chatList],
+          action.payload.source.index,
+          action.payload.destination.index
+        );
+
+        return { ...state, chatList };
+      }
+      if (
+        action.payload.source.droppableId !=
+          action.payload.destination.droppableId &&
+        action.payload.source.droppableId == "chats"
+      ) {
+        const attached = [...state.attached];
+        return {
+          ...state,
+          chatList: [
+            ...state.chatList.filter((id) => id != action.payload.draggableId),
+          ],
+          attached: [
+            ...attached.splice(0, action.payload.destination.index),
+            action.payload.draggableId,
+            ...attached.splice(action.payload.destination.index),
+          ],
+        };
+      }
+
+      if (
+        action.payload.source.droppableId !=
+          action.payload.destination.droppableId &&
+        action.payload.source.droppableId == "attached"
+      ) {
+        const chatList = [...state.chatList];
+        return {
+          ...state,
+          attached: [
+            ...state.attached.filter((id) => id != action.payload.draggableId),
+          ],
+          chatList: [
+            ...chatList.splice(0, action.payload.destination.index),
+            action.payload.draggableId,
+            ...chatList.splice(action.payload.destination.index),
+          ],
+        };
+      }
+
+      return {
+        ...state,
       };
     }
 
@@ -166,6 +264,7 @@ export const useChatList = () => {
       : {
           chats: [],
           attached: [],
+          chatList: [],
         };
   }, []);
   const [state, dispatch] = useReducer(reducer, initial);
@@ -218,9 +317,19 @@ export const useChatList = () => {
   };
 
   const getAttachFiles = () => {
-    return state.chats.filter(({ id }) => {
-      return state.attached.includes(id);
-    });
+    return state.attached
+      .map((file) => {
+        return state.chats.filter(({ id }) => id == file)[0];
+      })
+      .filter(Boolean);
+  };
+
+  const getChatList = () => {
+    return state.chatList
+      .map((file) => {
+        return state.chats.filter(({ id }) => id == file)[0];
+      })
+      .filter(Boolean);
   };
 
   const getNotAttachedFiles = () => {
@@ -247,6 +356,13 @@ export const useChatList = () => {
     });
   };
 
+  const reorder = (data: Reorder) => {
+    dispatch({
+      type: "reorder",
+      payload: data,
+    });
+  };
+
   return {
     chats: state.chats,
     createFolder,
@@ -260,6 +376,9 @@ export const useChatList = () => {
     getNotAttachedFiles,
     deleteFile,
     editFile,
+    reorder,
+    state,
+    getChatList,
   };
 };
 

@@ -12,3 +12,14 @@ export interface ChatFile {
 }
 
 export type ChatType = "text" | "image" | "video" | "audio" | "folder";
+export interface Reorder {
+  source: {
+    index: number;
+    droppableId: string;
+  };
+  destination: {
+    droppableId: string;
+    index: number;
+  };
+  draggableId: string;
+}

@@ -11,11 +11,11 @@ import { ChatList } from "@components/organisms/chat-list";
 import { useChatList } from "@components/organisms/chat-list/use-chat-list";
 import { PageHeader } from "@components/organisms/page-header";
 import { BaseHeaderContent } from "@components/templates/base-header-content";
+import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd";
 const ChatsPage = () => {
   const {
     createText,
     createFolder,
-    getNotAttachedFiles,
     addFileToFolder,
     changeFolderName,
     deleteFolder,
@@ -23,6 +23,8 @@ const ChatsPage = () => {
     getAttachFiles,
     deleteFile,
     editFile,
+    reorder,
+    getChatList,
   } = useChatList();
 
   const onCreateFolder = () => {
@@ -32,6 +34,15 @@ const ChatsPage = () => {
     return createText("Новый файл");
   };
 
+  const onDragEnd = (result: DropResult) => {
+    if (result.destination?.droppableId && result.source.droppableId) {
+      reorder({
+        destination: result.destination,
+        draggableId: result.draggableId,
+        source: result.source,
+      });
+    }
+  };
   return (
     <PageHeader pageContent={<BaseHeaderContent title="Диалоги" />}>
       <Container>
@@ -59,39 +70,50 @@ const ChatsPage = () => {
             </Button>
           </HStack>
           <Input placeholder="Поиск" />
-
-          <div>
-            <Box className="px-3.5 ">
-              <Text className="text-secondary/75 font-sans text-md font-medium">
-                Закрепленные чаты
-              </Text>
-            </Box>
-            <ChatList
-              onNewChat={addFileToFolder}
-              chats={getAttachFiles()}
-              onEditFolder={changeFolderName}
-              deleteFolder={deleteFolder}
-              attachFile={attachFile}
-              onDeleteFile={deleteFile}
-              onEditFile={editFile}
-            />
-          </div>
-          <div>
-            <Box className="px-3.5 ">
-              <Text className="text-secondary/75 font-sans text-md font-medium">
-                Список чатов
-              </Text>
-            </Box>
-            <ChatList
-              onNewChat={addFileToFolder}
-              chats={getNotAttachedFiles()}
-              onEditFolder={changeFolderName}
-              deleteFolder={deleteFolder}
-              attachFile={attachFile}
-              onDeleteFile={deleteFile}
-              onEditFile={editFile}
-            />
-          </div>
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="attached">
+              {(provided) => (
+                <div ref={provided.innerRef} {...provided.droppableProps}>
+                  <Box className="px-3.5 ">
+                    <Text className="text-secondary/75 font-sans text-md font-medium">
+                      Закрепленные чаты
+                    </Text>
+                  </Box>
+                  <ChatList
+                    onNewChat={addFileToFolder}
+                    chats={getAttachFiles()}
+                    onEditFolder={changeFolderName}
+                    deleteFolder={deleteFolder}
+                    attachFile={attachFile}
+                    onDeleteFile={deleteFile}
+                    onEditFile={editFile}
+                  />
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+            <Droppable droppableId="chats">
+              {(provided) => (
+                <div ref={provided.innerRef} {...provided.droppableProps}>
+                  <Box className="px-3.5 ">
+                    <Text className="text-secondary/75 font-sans text-md font-medium">
+                      Список чатов
+                    </Text>
+                  </Box>
+                  <ChatList
+                    onNewChat={addFileToFolder}
+                    chats={getChatList()}
+                    onEditFolder={changeFolderName}
+                    deleteFolder={deleteFolder}
+                    attachFile={attachFile}
+                    onDeleteFile={deleteFile}
+                    onEditFile={editFile}
+                  />
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
         </Stack>
       </Container>
     </PageHeader>
