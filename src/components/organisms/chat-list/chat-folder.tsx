@@ -74,11 +74,12 @@ export const ChatFolder: FC<ChatFolderProps> = (props) => {
       onValueChange={setAccardion}
       value={accardion}
     >
-      <AccordionItem value={id}>
+      <AccordionItem value={id} className="">
         <AccordionTrigger
           className={cn(
             accardion.includes(id) && "bg-[#777D80] text-white",
-            !accardion.includes(id) && " text-[#9CA3AF]"
+            !accardion.includes(id) && " text-[#9CA3AF]",
+            focused && "bg-[#777D80] text-white !delay-0 duration-75"
           )}
         >
           <form
