@@ -39,6 +39,7 @@ export const ChatFolder: FC<ChatFolderProps> = (props) => {
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState(name);
   const dialog = useImperativeDialog();
+  const [accardion, setAccardion] = useState<string[]>([]);
   const onEdit = () => {
     setFocused(true);
     inputRef.current.focus();
@@ -67,9 +68,19 @@ export const ChatFolder: FC<ChatFolderProps> = (props) => {
   };
 
   return (
-    <Accordion type="multiple" className="w-full">
-      <AccordionItem value="value-1">
-        <AccordionTrigger>
+    <Accordion
+      type="multiple"
+      className="w-full"
+      onValueChange={setAccardion}
+      value={accardion}
+    >
+      <AccordionItem value={id}>
+        <AccordionTrigger
+          className={cn(
+            accardion.includes(id) && "bg-[#777D80] text-white",
+            !accardion.includes(id) && " text-[#9CA3AF]"
+          )}
+        >
           <form
             onSubmit={(e) => {
               e.preventDefault();
