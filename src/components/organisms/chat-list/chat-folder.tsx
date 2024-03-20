@@ -17,6 +17,7 @@ import {
 } from "@components/atoms/Icon";
 import { FC, MutableRefObject, ReactNode, useRef, useState } from "react";
 import { ChatFolder as ChatFolderType } from "./types";
+import useImperativeDialog from "@/hooks/use-imperative-dialog";
 export interface ChatFolderProps extends Omit<ChatFolderType, "files"> {
   children: ReactNode;
   onNewChat: (id: string) => void;
@@ -37,6 +38,7 @@ export const ChatFolder: FC<ChatFolderProps> = (props) => {
   const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState(name);
+  const dialog = useImperativeDialog();
   const onEdit = () => {
     setFocused(true);
     inputRef.current.focus();
@@ -50,8 +52,14 @@ export const ChatFolder: FC<ChatFolderProps> = (props) => {
     setFocused(false);
   };
 
-  const onDelete = () => {
-    deleteFolder(id);
+  const onDelete = async () => {
+    const shouldDelete = await dialog({
+      heading: "Are you absolutely sure?",
+      text: "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
+    });
+    if (shouldDelete) {
+      deleteFolder(id);
+    }
   };
 
   const onAttachFile = () => {

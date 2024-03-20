@@ -3,6 +3,7 @@ import { HStack } from "@components/atoms/HStack";
 import { EditIcon, MessageIcon, Trash } from "@components/atoms/Icon";
 import { FC, MutableRefObject, useRef, useState } from "react";
 import { ChatType } from "./types";
+import useImperativeDialog from "@/hooks/use-imperative-dialog";
 
 export interface ChatListItemProps {
   name: string;
@@ -34,6 +35,7 @@ export const ChatListItem: FC<ChatListItemProps> = ({
   const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState(name);
+  const dialog = useImperativeDialog();
   const onSubmit = () => {
     onEditFile({
       name: value || "",
@@ -48,11 +50,17 @@ export const ChatListItem: FC<ChatListItemProps> = ({
     inputRef.current.focus();
   };
 
-  const onDelete = () => {
-    onDeleteFile({
-      id,
-      parentId,
+  const onDelete = async () => {
+    const shouldDelete = await dialog({
+      heading: "Are you absolutely sure?",
+      text: "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
     });
+    if (shouldDelete) {
+      onDeleteFile({
+        id,
+        parentId,
+      });
+    }
   };
   return (
     <HStack
