@@ -1,3 +1,4 @@
+import { cn } from "@/lib/cn";
 import { Box } from "@components/atoms/Box";
 import { Button } from "@components/atoms/Button";
 import { HStack } from "@components/atoms/HStack";
@@ -72,8 +73,16 @@ const ChatsPage = () => {
           <Input placeholder="Поиск" />
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="attached">
-              {(provided) => (
-                <div ref={provided.innerRef} {...provided.droppableProps}>
+              {(provided, snapshot) => (
+                <div
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                  className={cn(
+                    "transition-all duration-100 rounded-lg",
+                    snapshot.isDraggingOver &&
+                      "py-2 px-1   border-2 border-secondary bg-secondary-foreground "
+                  )}
+                >
                   <Box className="px-3.5 ">
                     <Text className="text-secondary/75 font-sans text-md font-medium">
                       Закрепленные чаты
@@ -93,8 +102,16 @@ const ChatsPage = () => {
               )}
             </Droppable>
             <Droppable droppableId="chats">
-              {(provided) => (
-                <div ref={provided.innerRef} {...provided.droppableProps}>
+              {(provided, snapshot) => (
+                <div
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                  className={cn(
+                    "transition-all duration-100 rounded-lg",
+                    snapshot.isDraggingOver &&
+                      "py-2 px-1   border-2 border-secondary bg-secondary-foreground "
+                  )}
+                >
                   <Box className="px-3.5 ">
                     <Text className="text-secondary/75 font-sans text-md font-medium">
                       Список чатов
