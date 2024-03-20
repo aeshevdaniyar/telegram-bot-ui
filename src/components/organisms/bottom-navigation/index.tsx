@@ -25,7 +25,7 @@ export const BottomNavigation = () => {
           />
           <BottomNavigationItem
             pageLink="/chats"
-            icon={<MessageIcon className="w-7 h-7" />}
+            icon={<MessageIcon className="w-7 h-7 text-[#9CA3AF]" />}
             text="Диалоги"
             activeIcon={<ActiveMessageIcon className="w-7 h-7" />}
           />
