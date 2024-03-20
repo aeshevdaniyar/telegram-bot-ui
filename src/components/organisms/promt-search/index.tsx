@@ -72,7 +72,10 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = (props) => {
             </HStack>
           )}
           {promt.length != 0 && (
-            <Button className="w-8 h-8 p-0 rounded-full animate-jump-in duration-300">
+            <Button
+              variant={"ghost"}
+              className="w-8 h-8 p-0 rounded-full animate-jump-in duration-300"
+            >
               <SendHorizonal className="w-5 h-5" />
             </Button>
           )}
