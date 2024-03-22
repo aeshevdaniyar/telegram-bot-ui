@@ -85,7 +85,7 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = () => {
             setPromt(e.target.value);
           }}
           className={cn(
-            // attachContent && "rounded-b-xl rounded-t-none",
+            "rounded-b-xl rounded-t-none",
             recorderState.initRecording && "text-white placeholder:text-white"
           )}
         />
