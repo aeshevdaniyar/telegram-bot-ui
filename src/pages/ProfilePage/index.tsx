@@ -24,11 +24,11 @@ import {
 } from "@components/templates/global-dialog";
 import { X } from "lucide-react";
 const ProfilePage = () => {
-  const { user } = useTelegram();
+  const { user, webApp } = useTelegram();
   return (
     <PageHeader pageContent={<BaseHeaderContent title="Мой аккаунт" />}>
       <Container>
-        {JSON.stringify(user)}
+        {JSON.stringify(webApp?.initDataUnsafe)}
         <Stack className="gap-4.5">
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Stack className="gap-4.5">
