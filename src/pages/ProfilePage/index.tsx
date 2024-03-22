@@ -1,3 +1,4 @@
+import { useTelegram } from "@/telegram";
 import StarIcon from "@assets/star.svg";
 import { Avatar, AvatarFallback, AvatarImage } from "@components/atoms/Avatar";
 import { Box } from "@components/atoms/Box";
@@ -23,6 +24,7 @@ import {
 } from "@components/templates/global-dialog";
 import { X } from "lucide-react";
 const ProfilePage = () => {
+  const { user } = useTelegram();
   return (
     <PageHeader pageContent={<BaseHeaderContent title="Мой аккаунт" />}>
       <Container>
@@ -31,14 +33,16 @@ const ProfilePage = () => {
             <Stack className="gap-4.5">
               <HStack className="items-center gap-6">
                 <Avatar className="w-20 h-20">
-                  <AvatarImage src="https://github.com/shadcn.png" />
+                  <AvatarImage src={user?.photo_url} />
                   <AvatarFallback>SR</AvatarFallback>
                 </Avatar>
                 <Stack className="w-full">
-                  <Text className="text-2xl font-semibold">Sergey Romanov</Text>
+                  <Text className="text-2xl font-semibold">
+                    {user?.first_name} {user?.last_name}
+                  </Text>
                   <Box className="bg-muted p-2 rounded-md text-center">
                     <Text className="text-lg font-medium">
-                      Stenix7@yandex.ru
+                      {user?.username}
                     </Text>
                   </Box>
                 </Stack>
