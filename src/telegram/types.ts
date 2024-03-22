@@ -46,4 +46,5 @@ export interface IWebApp {
     isActive: boolean;
   };
   HapticFeedback: any;
+  expand: () => void;
 }

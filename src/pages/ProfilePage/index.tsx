@@ -34,7 +34,7 @@ const ProfilePage = () => {
             <Stack className="gap-4.5">
               <HStack className="items-center gap-6">
                 <Avatar className="w-20 h-20">
-                  <AvatarImage src={user?.photo_url} />
+                  <AvatarImage src={webApp?.initDataUnsafe.user.photo_url} />
                   <AvatarFallback>SR</AvatarFallback>
                 </Avatar>
                 <Stack className="w-full">

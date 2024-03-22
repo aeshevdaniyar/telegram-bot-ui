@@ -1,11 +1,12 @@
 import { PageGlobal } from "@components/organisms/page-global";
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 import {
   Route,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+import { useTelegram } from "./telegram";
 
 const IndexPage = lazy(() => import("./pages/IndexPage"));
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  const { webApp } = useTelegram();
+  useEffect(() => {
+    webApp?.expand();
+  }, [webApp]);
   return (
     <PageGlobal>
       <RouterProvider router={router} />
