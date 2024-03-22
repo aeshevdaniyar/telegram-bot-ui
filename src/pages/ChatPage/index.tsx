@@ -1,10 +1,13 @@
 import ChatGPTLogo from "@assets/ChatGPTOutlineLogo.svg";
+import { Box } from "@components/atoms/Box";
 import { Button } from "@components/atoms/Button";
 import { CodeBlock } from "@components/atoms/CodeBlock";
+import { Dialog, DialogContent, DialogTrigger } from "@components/atoms/Dialog";
 import { HStack } from "@components/atoms/HStack";
 import { ShareIcon } from "@components/atoms/Icon";
 import { Stack } from "@components/atoms/Stack";
 import { Text } from "@components/atoms/Text";
+import { VideoPlayer } from "@components/atoms/VideoPlayer";
 import { BotError } from "@components/molecules/bot-error";
 import { BotLoader } from "@components/molecules/bot-loader";
 import { BotProgress } from "@components/molecules/bot-progress";
@@ -22,6 +25,7 @@ import { TxtFile } from "@components/organisms/txt-file";
 import { VideoFile } from "@components/organisms/video-file";
 import { WordFile } from "@components/organisms/word-file";
 import { ChatHeaderContent } from "@components/templates/chat-header-content";
+
 import { useLayout } from "@components/templates/layout";
 import { useEffect } from "react";
 const ChatPage = () => {
@@ -119,7 +123,24 @@ const ChatPage = () => {
             attachContent={
               <Stack>
                 <AudioFile fileName="Медуза Matrang" type="response" />
-                <VideoFile type="response" />
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Box className="cursor-pointer">
+                      <VideoFile type="response" />
+                    </Box>
+                  </DialogTrigger>
+                  <DialogContent className="bg-white py-10">
+                    <VideoPlayer
+                      videoProps={{
+                        playsInline: true,
+                        poster: "/assets/poster.png",
+                        src: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
+                        autoPlay: true,
+                      }}
+                    />
+                  </DialogContent>
+                </Dialog>
+
                 <WordFile type="response" />
                 <TxtFile type="response" />
                 <ImageFile type="response" />
