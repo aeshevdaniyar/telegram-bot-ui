@@ -32,7 +32,7 @@ const InputLeftElement: FC<InputElementProps> = ({ className, ...props }) => {
   return (
     <div
       className={cn(
-        "absolute z-10  start-0 flex items-center ps-3.5",
+        "absolute z-20  start-0 flex items-center ps-3.5",
         className
       )}
       {...props}
@@ -44,7 +44,7 @@ const InputRightElement: FC<InputElementProps> = ({ className, ...props }) => {
   return (
     <div
       className={cn(
-        "absolute z-10  end-0 flex items-center pe-3 ",
+        "absolute z-20  end-0 flex items-center pe-3 ",
         className
       )}
       {...props}

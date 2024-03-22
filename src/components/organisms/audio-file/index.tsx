@@ -6,19 +6,21 @@ import { Stack } from "@components/atoms/Stack";
 import Swap from "@components/atoms/Swap";
 import { Text } from "@components/atoms/Text";
 import { PauseCircleIcon } from "lucide-react";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 import { useAudio } from "react-use";
-import { formattedTime } from "./utils";
 import { AudioProgress } from "./progress";
+import { formattedTime } from "./utils";
 export interface AudioFileProps {
   type: "request" | "response";
   fileName: string;
+  url?: string;
 }
 export const AudioFile: FC<AudioFileProps> = (props) => {
-  const { type, fileName } = props;
+  const { type, fileName, url } = props;
+
   const [audio, state, controls] = useAudio({
-    src: "https://cdn.pixabay.com/audio/2024/02/27/audio_b0df7463a4.mp3",
+    src: url || "https://cdn.pixabay.com/audio/2024/02/27/audio_b0df7463a4.mp3",
   });
 
   const onSwapClick = () => {
@@ -26,11 +28,18 @@ export const AudioFile: FC<AudioFileProps> = (props) => {
       controls.pause();
       return;
     }
+
     controls.play();
   };
+
+  useEffect(() => {
+    controls.play();
+  }, []);
+
   return (
     <FileCard type={type}>
       {audio}
+
       <HStack>
         <Box className="min-w-11 h-11 rounded-full">
           <Swap
