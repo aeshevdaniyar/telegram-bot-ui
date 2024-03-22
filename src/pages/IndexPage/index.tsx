@@ -1,7 +1,7 @@
 import { PageInner } from "@components/organisms/page-inner";
 import { Layout } from "@components/templates/layout";
-import { lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import { lazy, useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 const ProfilePage = lazy(() => import("../ProfilePage"));
 const NaturalNetworksPage = lazy(() => import("../NaturalNetworksPage"));
@@ -13,6 +13,10 @@ const ChatsPage = lazy(() => import("../ChatsPage"));
 const ChatPage = lazy(() => import("../ChatPage"));
 
 const IndexPage = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/natural-networks");
+  }, []);
   return (
     <Layout>
       <Routes>
