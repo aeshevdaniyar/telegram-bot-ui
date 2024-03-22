@@ -4,6 +4,7 @@ import { Button } from "@components/atoms/Button";
 import { HStack } from "@components/atoms/HStack";
 import { FolderAddIcon, PlusIcon } from "@components/atoms/Icon";
 import { Input } from "@components/atoms/Input";
+import { LinkHref } from "@components/atoms/Link";
 import { Stack } from "@components/atoms/Stack";
 import { Text } from "@components/atoms/Text";
 import { Container } from "@components/molecules/container";
@@ -132,6 +133,7 @@ const ChatsPage = () => {
             </Droppable>
           </DragDropContext>
         </Stack>
+        <LinkHref to={"test"}>временная сслыка</LinkHref>
       </Container>
     </PageHeader>
   );
