@@ -28,6 +28,7 @@ const ProfilePage = () => {
   return (
     <PageHeader pageContent={<BaseHeaderContent title="Мой аккаунт" />}>
       <Container>
+        {JSON.stringify(user)}
         <Stack className="gap-4.5">
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Stack className="gap-4.5">
