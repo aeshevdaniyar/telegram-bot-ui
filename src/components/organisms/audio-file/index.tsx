@@ -6,7 +6,7 @@ import { Stack } from "@components/atoms/Stack";
 import Swap from "@components/atoms/Swap";
 import { Text } from "@components/atoms/Text";
 import { PauseCircleIcon } from "lucide-react";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 
 import { useAudio } from "react-use";
 import { AudioProgress } from "./progress";
@@ -31,10 +31,6 @@ export const AudioFile: FC<AudioFileProps> = (props) => {
 
     controls.play();
   };
-
-  useEffect(() => {
-    controls.play();
-  }, []);
 
   return (
     <FileCard type={type}>

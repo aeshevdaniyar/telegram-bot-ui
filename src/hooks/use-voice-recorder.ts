@@ -119,7 +119,7 @@ export default function useRecorder() {
       };
 
       recorder.onstop = () => {
-        const blob = new Blob(chunks, { type: "audio/ogg; codecs=opus" });
+        const blob = new Blob(chunks, { type: recorder.mimeType });
         chunks = [];
 
         setRecorderState((prevState: Recorder) => {
