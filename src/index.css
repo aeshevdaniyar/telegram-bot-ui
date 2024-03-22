@@ -76,7 +76,7 @@
 }
 @layer base {
   body {
-    @apply font-sans text-foreground;
+    @apply font-sans text-foreground bg-white;
   }
 
   .main {
