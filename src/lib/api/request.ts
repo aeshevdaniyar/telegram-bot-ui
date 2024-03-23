@@ -38,7 +38,6 @@ export default class Client {
 
     const reqOpts = {
       method,
-      withCredentials: true,
       url: path,
       json: true,
       headers: this.setHeaders(customHeaders),

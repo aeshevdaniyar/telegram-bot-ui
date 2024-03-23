@@ -9,10 +9,10 @@ export const PageSkeleton = () => {
       <Box className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Stack className="gap-4.5">
           <HStack className="items-center gap-6">
-            <Skeleton className="rounded-full w-20 h-20" />
+            <Skeleton className="rounded-full w-full max-w-20  max-h-20" />
             <Stack className="w-full">
-              <Skeleton />
-              <Skeleton className="p-2" />
+              <Skeleton className="p-3"/>
+              <Skeleton className="p-6" />
             </Stack>
           </HStack>
           <Box className="bg-muted p-4 rounded-md w-full">
