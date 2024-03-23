@@ -28,7 +28,7 @@ import { PageSkeleton } from "./page-skeleton";
 const ProfilePage = () => {
   const { user, webApp } = useTelegram();
   const { isLoading } = useProfile(user?.id || 0);
-  console.log(user);
+  console.log(user, webApp);
 
   if (isLoading) {
     return (
