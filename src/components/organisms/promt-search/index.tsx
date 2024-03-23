@@ -31,6 +31,7 @@ interface PromtSearchPanelProps {
 }
 
 export const PromtSearchPanel: FC<PromtSearchPanelProps> = () => {
+  const [attachContent, setAttachContent] = useState(false);
   const { recorderState, startRecording, saveRecording } = useRecorder();
 
   const textbox = useRef(null) as MutableRefObject<HTMLTextAreaElement | null>;
@@ -53,13 +54,19 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = () => {
       saveRecording();
     }
   };
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (recorderState.audio) {
+      setAttachContent(true);
+    }
+  }, [recorderState.audio]);
 
   return (
     <Box className="w-full bg-white rounded-xl">
-      <Box className="p-4 border-secondary-foreground border-2 border-b-0 rounded-t-xl rounded-b-none ">
-        <AudioRecordList audio={recorderState.audio} />
-      </Box>
+      {attachContent && (
+        <Box className="p-4 border-secondary-foreground border-2 border-b-0 rounded-t-xl rounded-b-none ">
+          <AudioRecordList audio={recorderState.audio} />
+        </Box>
+      )}
 
       <InputGroup className="w-full">
         <InputLeftElement className="bottom-2">
@@ -85,7 +92,7 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = () => {
             setPromt(e.target.value);
           }}
           className={cn(
-            "rounded-b-xl rounded-t-none",
+            attachContent && "rounded-b-xl rounded-t-none",
             recorderState.initRecording && "text-white placeholder:text-white"
           )}
         />
@@ -94,10 +101,19 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = () => {
           {promt.length == 0 && (
             <HStack className="items-center w-8 h-8 justify-center animate-fade-left duration-300 mr-4">
               <Box className="cursor-pointer" onClick={onRecordStart}>
-                <RecordingIcon />
+                <RecordingIcon
+                  className={cn(
+                    "text-secondary",
+                    recorderState.initRecording && "text-primary"
+                  )}
+                />
               </Box>
 
-              <SettingDrawer />
+              {!recorderState.initRecording && (
+                <Box className="animate-fade-left flex items-center">
+                  <SettingDrawer />
+                </Box>
+              )}
             </HStack>
           )}
           {promt.length != 0 && (

@@ -1,3 +1,4 @@
+import { useProfile } from "@/lib/query/hooks/profile/query";
 import { useTelegram } from "@/telegram";
 import StarIcon from "@assets/star.svg";
 import { Avatar, AvatarFallback, AvatarImage } from "@components/atoms/Avatar";
@@ -23,12 +24,24 @@ import {
   DialogTrigger,
 } from "@components/templates/global-dialog";
 import { X } from "lucide-react";
+import { PageSkeleton } from "./page-skeleton";
 const ProfilePage = () => {
   const { user, webApp } = useTelegram();
+  const { isLoading } = useProfile(user?.id || 0);
+  console.log(user);
+
+  if (isLoading) {
+    return (
+      <PageHeader pageContent={<BaseHeaderContent title="Мой аккаунт" />}>
+        <Container>
+          <PageSkeleton />
+        </Container>
+      </PageHeader>
+    );
+  }
   return (
     <PageHeader pageContent={<BaseHeaderContent title="Мой аккаунт" />}>
       <Container>
-        {JSON.stringify(webApp)}
         <Stack className="gap-4.5">
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Stack className="gap-4.5">

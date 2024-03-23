@@ -36,7 +36,7 @@ export const AudioFile: FC<AudioFileProps> = (props) => {
     <FileCard type={type}>
       {audio}
 
-      <HStack>
+      <HStack className="items-center">
         <Box className="min-w-11 h-11 rounded-full">
           <Swap
             offElement={<img src={PlayIcon} />}
@@ -48,10 +48,10 @@ export const AudioFile: FC<AudioFileProps> = (props) => {
             rotate
           />
         </Box>
-        <Stack className="w-full gap-2.5">
+        <Stack className="w-full gap-2.5 relative">
           <HStack className="justify-between items-center">
-            <Text className="font-normal">{fileName}</Text>
-            <Text className="font-normal" size={"xs"}>
+            <Text className="font-normal text-sm">{fileName}</Text>
+            <Text className="font-normal absolute right-0" size={"xs"}>
               {formattedTime(state.duration)}
             </Text>
           </HStack>
