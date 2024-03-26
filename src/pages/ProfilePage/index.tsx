@@ -1,7 +1,7 @@
 import { useProfile } from "@/lib/query/hooks/profile/query";
 import { useTelegram } from "@/telegram";
 import StarIcon from "@assets/star.svg";
-import { Avatar, AvatarFallback, AvatarImage } from "@components/atoms/Avatar";
+import { Avatar, AvatarFallback } from "@components/atoms/Avatar";
 import { Box } from "@components/atoms/Box";
 import { Button } from "@components/atoms/Button";
 import { Card } from "@components/atoms/Card";
@@ -26,9 +26,9 @@ import {
 import { X } from "lucide-react";
 import { PageSkeleton } from "./page-skeleton";
 const ProfilePage = () => {
-  const { user, webApp } = useTelegram();
-  const { isLoading } = useProfile(user?.id || 0);
-  console.log(user, webApp);
+  const { user } = useTelegram();
+  const { profile, isLoading } = useProfile(1605368953);
+  console.log(profile);
 
   if (isLoading) {
     return (
@@ -47,7 +47,7 @@ const ProfilePage = () => {
             <Stack className="gap-4.5">
               <HStack className="items-center gap-6">
                 <Avatar className="w-20 h-20">
-                  <AvatarImage src={webApp?.initDataUnsafe.user.photo_url} />
+                  {/* <AvatarImage src={webApp?.initDataUnsafe?.user.photo_url} /> */}
                   <AvatarFallback>SR</AvatarFallback>
                 </Avatar>
                 <Stack className="w-full">

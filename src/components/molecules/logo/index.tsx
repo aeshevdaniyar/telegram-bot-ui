@@ -8,7 +8,7 @@ export interface LogoProps extends HTMLAttributes<HTMLDivElement> {}
 export const Logo: FC<LogoProps> = ({ className, ...props }) => {
   return (
     <Box className={cn(className)} {...props}>
-      <Link className="h-full" to="/">
+      <Link className="h-full" to="/profile">
         <img className="max-w-full" src={LogoIcon} alt="logo" />
       </Link>
     </Box>

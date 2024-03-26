@@ -1,4 +1,5 @@
 import { cn } from "@/lib/cn";
+import { useChatFolderList } from "@/lib/query/hooks/chatFolder/query";
 import { Box } from "@components/atoms/Box";
 import { Button } from "@components/atoms/Button";
 import { HStack } from "@components/atoms/HStack";
@@ -15,6 +16,10 @@ import { PageHeader } from "@components/organisms/page-header";
 import { BaseHeaderContent } from "@components/templates/base-header-content";
 import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd";
 const ChatsPage = () => {
+  const { chatFolders } = useChatFolderList(1605368953);
+
+  console.log(chatFolders);
+
   const {
     createText,
     createFolder,

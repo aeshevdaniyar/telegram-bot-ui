@@ -22,3 +22,35 @@ export interface Tariff {
   price: number;
   is_trial: boolean;
 }
+
+export type AiModelType = "text" | "image";
+export interface AiModel {
+  pk: string;
+  type: AiModelType;
+  name: string;
+  code: string;
+  icon: string;
+  description: string | null;
+  hint: string | null;
+}
+
+export interface ChatFolder {
+  pk: string;
+  name: string;
+  sessions: ChatSessionFolder[];
+}
+
+export interface ChatSessionFolder {
+  pk: string;
+  name: string;
+  created_at: string;
+}
+
+export interface ChatSession {
+  pk: string;
+  name: string;
+  folder: string;
+  ai_model: string;
+  main_session: string;
+  created_at: string;
+}

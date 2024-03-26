@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-export type RequestMethod = "DELETE" | "POST" | "GET" | "PUT";
+export type RequestMethod = "DELETE" | "POST" | "GET" | "PUT" | "PATCH";
 export interface Config {
   baseUrl: string;
   customHeaders?: Record<string, any>;
@@ -43,16 +43,14 @@ export default class Client {
       headers: this.setHeaders(customHeaders),
     };
 
-    if (["POST", "DELETE"].includes(method)) {
+    if (["POST", "DELETE", "PATCH"].includes(method)) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       reqOpts["data"] = payload;
     }
 
-    // e.g. data = { cart: { ... } }, response = { status, headers, ... }
     const { data, ...response } = await this.axiosClient(reqOpts);
 
-    // e.g. would return an object like of this shape { cart, response }
-    return { ...data, response };
+    return { data, response };
   }
 }
