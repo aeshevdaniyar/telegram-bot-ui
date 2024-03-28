@@ -1,8 +1,5 @@
-import AudioIcom from "@assets/audio.svg";
 import CodeIcon from "@assets/code.svg";
-import EduIcon from "@assets/edu.svg";
 import PhotoIcon from "@assets/photo.svg";
-import VideoIcon from "@assets/video.svg";
 import { Heading } from "@components/atoms/Heading";
 import { Stack } from "@components/atoms/Stack";
 import { Text } from "@components/atoms/Text";
@@ -22,11 +19,10 @@ const NeturalNetworksPage = () => {
           <Stack className="w-full mt-8 gap-5">
             <AITypeItem
               image={PhotoIcon}
-              pageLink="/all-ai"
+              pageLink="/all-ai?type=image"
               title="Генерация картинок"
-               
             />
-            <AITypeItem image={VideoIcon} pageLink="" title="Генерация видео" />
+            {/* <AITypeItem image={VideoIcon} pageLink="" title="Генерация видео" />
             <AITypeItem
               image={EduIcon}
               pageLink="/all-ai"
@@ -36,8 +32,12 @@ const NeturalNetworksPage = () => {
               image={AudioIcom}
               pageLink="/all-ai"
               title="Генерация звука"
+            /> */}
+            <AITypeItem
+              image={CodeIcon}
+              pageLink="/all-ai?type=text"
+              title="Чат Бот"
             />
-            <AITypeItem image={CodeIcon} pageLink="/all-ai" title="Чат Бот" />
           </Stack>
         </Stack>
       </Container>

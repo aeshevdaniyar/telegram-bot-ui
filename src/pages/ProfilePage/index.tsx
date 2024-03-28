@@ -28,7 +28,6 @@ import { PageSkeleton } from "./page-skeleton";
 const ProfilePage = () => {
   const { user } = useTelegram();
   const { profile, isLoading } = useProfile(1605368953);
-  console.log(profile);
 
   if (isLoading) {
     return (
@@ -56,7 +55,7 @@ const ProfilePage = () => {
                   </Text>
                   <Box className="bg-muted p-2 rounded-md text-center">
                     <Text className="text-lg font-medium">
-                      {user?.username}
+                      @{user?.username}
                     </Text>
                   </Box>
                 </Stack>
@@ -86,7 +85,9 @@ const ProfilePage = () => {
               <Stack>
                 <Card>
                   <HStack className="justify-between items-center">
-                    <Text className="text-xl">💎 0 токенов</Text>
+                    <Text className="text-xl">
+                      💎 {profile?.token_balance} токенов
+                    </Text>
                     <QuestionMark popoverText="Тут текст" />
                   </HStack>
                 </Card>
@@ -95,7 +96,9 @@ const ProfilePage = () => {
               <Stack>
                 <Card>
                   <HStack className="justify-between items-center">
-                    <Text className="text-xl">Подписка FREE</Text>
+                    <Text className="text-xl">
+                      Подписка {profile?.tariff.name}
+                    </Text>
                     <QuestionMark popoverText="Тут текст" />
                   </HStack>
                 </Card>

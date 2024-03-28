@@ -1,6 +1,7 @@
+import { Profile } from "../types";
 import BaseResource from "./base";
 
-class Profile extends BaseResource {
+class ProfileResource extends BaseResource {
   async retrive(customHeaders: Record<string, any> = {}): Promise<Profile> {
     const { data } = await this.client.request(
       "GET",
@@ -13,4 +14,4 @@ class Profile extends BaseResource {
   }
 }
 
-export default Profile;
+export default ProfileResource;
