@@ -18,6 +18,11 @@ const NeturalNetworksPage = () => {
           </Text>
           <Stack className="w-full mt-8 gap-5">
             <AITypeItem
+              image={CodeIcon}
+              pageLink="/all-ai?type=text"
+              title="Генерация текста"
+            />
+            <AITypeItem
               image={PhotoIcon}
               pageLink="/all-ai?type=image"
               title="Генерация картинок"
@@ -33,11 +38,6 @@ const NeturalNetworksPage = () => {
               pageLink="/all-ai"
               title="Генерация звука"
             /> */}
-            <AITypeItem
-              image={CodeIcon}
-              pageLink="/all-ai?type=text"
-              title="Чат Бот"
-            />
           </Stack>
         </Stack>
       </Container>
