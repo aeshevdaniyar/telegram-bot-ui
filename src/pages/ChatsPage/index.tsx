@@ -57,12 +57,16 @@ const ChatsPage = () => {
       });
   }, [refTopPage]);
 
+  // тут рефкой сделано потому что она работает стабильнее useState
+  // она быстрее обновляется и не зависит от ререндеров
   const isVisibleScrollToTop = useRef(false);
 
+  // setTimeout для того чтобы у нас refTopPage не был null
   setTimeout(() => {
     const headerHeight = 74.8;
     const footerHeight = 86;
 
+    // смотрим есть ли у нас скролл
     isVisibleScrollToTop.current = !!(
       refTopPage.current &&
       refTopPage.current?.scrollHeight + headerHeight + footerHeight >
