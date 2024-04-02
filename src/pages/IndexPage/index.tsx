@@ -1,3 +1,4 @@
+import { useAdModal } from "@/hooks/use-ad-modal";
 import { PageInner } from "@components/organisms/page-inner";
 import { Layout } from "@components/templates/layout";
 import { lazy, useEffect } from "react";
@@ -13,9 +14,16 @@ const ChatsPage = lazy(() => import("../ChatsPage"));
 const ChatPage = lazy(() => import("../ChatPage"));
 
 const IndexPage = () => {
+  const { onOpen } = useAdModal({
+    amount: 100,
+    days: 3,
+    name: "Безлимит ChatGPT 3.5 Tubo",
+    tokens: 50,
+  });
   const navigate = useNavigate();
   useEffect(() => {
     navigate("/natural-networks");
+    onOpen();
   }, []);
   return (
     <Layout>
