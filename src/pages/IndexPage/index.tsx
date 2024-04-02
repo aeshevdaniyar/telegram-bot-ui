@@ -27,8 +27,8 @@ const IndexPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     navigate("/natural-networks");
-    onOpen();
-    onOpenNotEnoughTokenModal();
+    // onOpen();
+    // onOpenNotEnoughTokenModal();
   }, []);
   return (
     <Layout>
