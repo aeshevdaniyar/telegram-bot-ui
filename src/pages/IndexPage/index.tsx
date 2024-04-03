@@ -1,4 +1,5 @@
 import { useAdModal } from "@/hooks/use-ad-modal";
+import { useNotEnoughTokenModal } from "@/hooks/use-not-enough-token";
 import { PageInner } from "@components/organisms/page-inner";
 import { Layout } from "@components/templates/layout";
 import { lazy, useEffect } from "react";
@@ -20,10 +21,14 @@ const IndexPage = () => {
     name: "Безлимит ChatGPT 3.5 Tubo",
     tokens: 50,
   });
+  const { onOpen: onOpenNotEnoughTokenModal } = useNotEnoughTokenModal({
+    price: 100,
+  });
   const navigate = useNavigate();
   useEffect(() => {
     navigate("/natural-networks");
-    onOpen();
+    // onOpen();
+    // onOpenNotEnoughTokenModal();
   }, []);
   return (
     <Layout>
