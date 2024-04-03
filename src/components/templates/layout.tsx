@@ -70,7 +70,9 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
     if (scrollRef.current) {
       const coords = scrollRef.current.getBoundingClientRect();
       const offset = scrollRef.current.scrollHeight - coords.height;
+
       if (offset == 0) {
+        hide();
         return;
       }
       if (offset == y) {
