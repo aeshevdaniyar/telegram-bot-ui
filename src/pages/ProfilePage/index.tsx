@@ -1,6 +1,5 @@
 import { useProfile } from "@/lib/query/hooks/profile/query";
 import { useTelegram } from "@/telegram";
-import StarIcon from "@assets/star.svg";
 import { Avatar, AvatarFallback } from "@components/atoms/Avatar";
 import { Box } from "@components/atoms/Box";
 import { Button } from "@components/atoms/Button";
@@ -17,13 +16,6 @@ import { Container } from "@components/molecules/container";
 import { QuestionMark } from "@components/molecules/question-mark";
 import { PageHeader } from "@components/organisms/page-header";
 import { BaseHeaderContent } from "@components/templates/base-header-content";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogTrigger,
-} from "@components/templates/global-dialog";
-import { X } from "lucide-react";
 import { PageSkeleton } from "./page-skeleton";
 const ProfilePage = () => {
   const { user } = useTelegram();
