@@ -1,7 +1,8 @@
 import { PageInner } from "@components/organisms/page-inner";
 import { Layout } from "@components/templates/layout";
-import { lazy, useEffect } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { lazy } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { NewChat } from "../NewChatPage";
 
 const ProfilePage = lazy(() => import("../ProfilePage"));
 const NaturalNetworksPage = lazy(() => import("../NaturalNetworksPage"));
@@ -22,16 +23,11 @@ const IndexPage = () => {
   // const { onOpen: onOpenNotEnoughTokenModal } = useNotEnoughTokenModal({
   //   price: 100,
   // });
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate("/natural-networks");
-    // onOpen();
-    // onOpenNotEnoughTokenModal();
-  }, []);
+
   return (
     <Layout>
       <Routes>
-        <Route index element={<PageInner>{/* <MainPage /> */}</PageInner>} />
+        <Route index element={<Navigate to={"/natural-networks"} />} />
         <Route
           path="profile/*"
           element={
@@ -45,6 +41,14 @@ const IndexPage = () => {
           element={
             <PageInner>
               <NaturalNetworksPage />
+            </PageInner>
+          }
+        />
+        <Route
+          path="new-chat/*"
+          element={
+            <PageInner>
+              <NewChat />
             </PageInner>
           }
         />
