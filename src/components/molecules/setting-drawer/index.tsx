@@ -30,7 +30,7 @@ export const SettingDrawer = () => {
       })
     ),
   });
-  console.log(form.formState.errors);
+
 
   const onClose = () => {
     setOpen(false);

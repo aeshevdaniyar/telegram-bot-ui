@@ -7,30 +7,36 @@ import { Text } from "@components/atoms/Text";
 import { Card } from "@components/atoms/Card";
 import { FC } from "react";
 import { QuestionMark } from "../question-mark";
+import { useNavigate } from "react-router-dom";
+import { AiModel } from "@/lib/api/types";
 
 //TODO:Fix font-family classname
-export interface NaturalnetworksListItemProps {
-  imageLogo: string;
-  name: string;
-  description: string;
-  isNew?: boolean;
-  amount: number;
-}
+export interface NaturalnetworksListItemProps extends AiModel {}
 export const NaturalnetworksListItem: FC<NaturalnetworksListItemProps> = (
   props
 ) => {
-  const { description, imageLogo, name, isNew = false, amount } = props;
+  const { description, name, code, hint, icon, pk } = props;
+  const navigate = useNavigate();
+
+  const goNewChat = () => {
+    navigate("/new-chat", {
+      state: {
+        code,
+        pk,
+      },
+    });
+  };
   return (
     <Card className="relative overflow-hidden">
-      {isNew && (
+      {/* {isNew && (
         <Box className="absolute top-0 -left-0 text-accent-green bg-accent-green/15 font-semibold font-vela py-1.5 px-5 rounded-br-xl ">
           NEW
         </Box>
-      )}
+      )} */}
       <Stack className="gap-5 mt-6">
         <HStack className="gap-3 items-center">
           <Box className="min-w-20 h-20">
-            <img src={imageLogo} className="min-w-full h-full" />
+            <img src={icon} className="min-w-full h-full" />
           </Box>
 
           <Stack className="gap-1">
@@ -41,18 +47,22 @@ export const NaturalnetworksListItem: FC<NaturalnetworksListItemProps> = (
               {description}
             </Text>
             <Text className="text-sm md:text-lg font-normal ">
-              💎 Стоимость: {amount} токенов
+              💎 Стоимость: 100 токенов
             </Text>
           </Stack>
         </HStack>
         <HStack>
-          <Button className="w-full justify-center" rightIcon={<ArrowRight />}>
+          <Button
+            className="w-full justify-center"
+            rightIcon={<ArrowRight />}
+            onClick={goNewChat}
+          >
             Начать чат
           </Button>
         </HStack>
       </Stack>
       <Box className="absolute top-4.5 right-4.5">
-        <QuestionMark popoverText="Cat warp pillage coast cutlass. Coffer lateen gangway yellow timbers blossom tales scurvy topgallant. Chantey arr round reef run lanyard no gun" />
+        <QuestionMark popoverText={hint || ""} />
       </Box>
     </Card>
   );

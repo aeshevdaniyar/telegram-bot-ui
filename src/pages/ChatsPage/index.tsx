@@ -14,9 +14,10 @@ import { useChatList } from "@components/organisms/chat-list/use-chat-list";
 import { PageHeader } from "@components/organisms/page-header";
 import { BaseHeaderContent } from "@components/templates/base-header-content";
 import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd";
+import { useNavigate } from "react-router-dom";
 const ChatsPage = () => {
+  const navigate = useNavigate();
   const {
-    createText,
     createFolder,
     addFileToFolder,
     changeFolderName,
@@ -34,7 +35,7 @@ const ChatsPage = () => {
   };
 
   const onCreateFile = () => {
-    return createText("Новый файл");
+    navigate("/natural-networks");
   };
 
   const onDragEnd = (result: DropResult) => {

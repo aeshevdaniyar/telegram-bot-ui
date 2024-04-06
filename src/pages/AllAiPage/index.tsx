@@ -30,17 +30,8 @@ const AllAiPage = () => {
     <PageHeader pageContent={<BaseHeaderContent title="Все нейросети" />}>
       <Container>
         <Stack className="gap-4.5">
-          {getFilteredAiModels().map(({ name, icon, description, pk }) => {
-            return (
-              <NaturalnetworksListItem
-                description={description || ""}
-                imageLogo={icon}
-                name={name}
-                isNew
-                amount={100}
-                key={pk}
-              />
-            );
+          {getFilteredAiModels().map((aiModel) => {
+            return <NaturalnetworksListItem {...aiModel} />;
           })}
 
           {/* <Pagination
