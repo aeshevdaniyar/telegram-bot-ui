@@ -16,7 +16,7 @@ const AllAiPage = () => {
     if (!isLoading && aimodels?.length) {
       setAiModels(aimodels);
     }
-  }, [aimodels, isLoading, setAiModels]);
+  }, [aimodels, isLoading]);
   if (isLoading) {
     return (
       <PageHeader pageContent={<BaseHeaderContent title="Все нейросети" />}>
@@ -31,16 +31,8 @@ const AllAiPage = () => {
       <Container>
         <Stack className="gap-4.5">
           {getFilteredAiModels().map((aiModel) => {
-            return <NaturalnetworksListItem {...aiModel} />;
+            return <NaturalnetworksListItem key={aiModel.pk} {...aiModel} />;
           })}
-
-          {/* <Pagination
-            currentPage={1}
-            innerLimit={1}
-            outerLimit={1}
-            onChange={() => {}}
-            pagesQuantity={12}
-          /> */}
         </Stack>
       </Container>
     </PageHeader>

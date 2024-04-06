@@ -28,9 +28,11 @@ import { formatMinutes, formatSeconds } from "@/lib/format-time";
 
 interface PromtSearchPanelProps {
   attachContent?: ReactNode;
+  onSubmit?: (value: string) => void;
 }
 
-export const PromtSearchPanel: FC<PromtSearchPanelProps> = () => {
+export const PromtSearchPanel: FC<PromtSearchPanelProps> = (props) => {
+  const { onSubmit } = props;
   const [attachContent, setAttachContent] = useState(false);
   const { recorderState, startRecording, saveRecording } = useRecorder();
 
@@ -46,7 +48,9 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = () => {
   useLayoutEffect(adjustHeight, []);
 
   const [promt, setPromt] = useState("");
-
+  const onPromtEnter = () => {
+    onSubmit?.(promt);
+  };
   const onRecordStart = () => {
     if (!recorderState.initRecording) {
       startRecording();
@@ -120,6 +124,7 @@ export const PromtSearchPanel: FC<PromtSearchPanelProps> = () => {
             <Button
               variant={"ghost"}
               className="w-8 h-8 p-0 rounded-full animate-jump-in duration-300"
+              onClick={onPromtEnter}
             >
               <SendHorizonal className="w-5 h-5" />
             </Button>

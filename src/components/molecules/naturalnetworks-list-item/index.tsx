@@ -9,7 +9,7 @@ import { FC } from "react";
 import { QuestionMark } from "../question-mark";
 import { useNavigate } from "react-router-dom";
 import { AiModel } from "@/lib/api/types";
-
+import qs from "qs";
 //TODO:Fix font-family classname
 export interface NaturalnetworksListItemProps extends AiModel {}
 export const NaturalnetworksListItem: FC<NaturalnetworksListItemProps> = (
@@ -19,12 +19,13 @@ export const NaturalnetworksListItem: FC<NaturalnetworksListItemProps> = (
   const navigate = useNavigate();
 
   const goNewChat = () => {
-    navigate("/new-chat", {
-      state: {
-        code,
-        pk,
-      },
+    const query = qs.stringify({
+      code,
+      pk,
+      icon,
+      name,
     });
+    navigate(`/new-chat?${query}`);
   };
   return (
     <Card className="relative overflow-hidden">

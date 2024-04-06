@@ -1,4 +1,3 @@
-import ChatGPTLogo from "@assets/ChatGPTOutlineLogo.svg";
 import { HStack } from "@components/atoms/HStack";
 import { ShareIcon } from "@components/atoms/Icon";
 import { Stack } from "@components/atoms/Stack";
@@ -9,8 +8,14 @@ import { ShareChat } from "@components/organisms/share-chat";
 import { ChatHeaderContent } from "@components/templates/chat-header-content";
 import { useLayout } from "@components/templates/layout";
 import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useNewChat } from "./use-new-chat";
 
 export const NewChat = () => {
+  const navigate = useNavigate();
+  const { search } = useLocation();
+  const { aiinfo } = useNewChat(search);
+
   const { promtInputLayout, defaultLayout } = useLayout();
 
   useEffect(() => {
@@ -19,12 +24,21 @@ export const NewChat = () => {
     return () => defaultLayout();
   }, [defaultLayout, promtInputLayout]);
 
+  useEffect(() => {
+    if (!aiinfo) {
+      navigate("/natural-networks");
+    }
+  }, [aiinfo]);
+
+  if (!aiinfo) {
+    return <></>;
+  }
   return (
     <PageHeader
       pageContent={
         <ChatHeaderContent
-          aiLogo={ChatGPTLogo}
-          aiName="ChatGPT 4"
+          aiLogo={aiinfo.icon}
+          aiName={aiinfo.name}
           rightElement={
             <ShareChat shareContent={<></>}>
               <ShareIcon />
