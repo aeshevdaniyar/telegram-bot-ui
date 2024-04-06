@@ -9,7 +9,7 @@ import { TelegramGuard } from "@/telegram/telegram-guard";
 export const Providers: FC<PropsWithChildren> = ({ children }) => {
   return (
     <TelegramProvider>
-      <TelegramGuard off>
+      <TelegramGuard>
         <ApiClientProvider
           baseUrl={BACKEND_URL}
           queryClientProviderProps={{
