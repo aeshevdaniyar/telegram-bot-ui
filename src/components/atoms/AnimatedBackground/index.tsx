@@ -53,28 +53,16 @@ export const AnimatedBackground: FC<PropsWithChildren> = ({ children }) => {
       },
       detectRetina: true,
       duration: 0,
-      fpsLimit: 120,
+      fpsLimit: 80,
       interactivity: {
         detectsOn: "window",
         events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
           onDiv: {
             enable: false,
 
             type: "circle",
           },
-          onHover: {
-            enable: true,
-            mode: "bubble",
-            parallax: {
-              enable: false,
-              force: 2,
-              smooth: 10,
-            },
-          },
+
           resize: {
             delay: 0.5,
             enable: true,
