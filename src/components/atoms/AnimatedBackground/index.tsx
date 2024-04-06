@@ -512,14 +512,10 @@ export const AnimatedBackground: FC<PropsWithChildren> = ({ children }) => {
     []
   );
 
-  if (init) {
-    return (
-      <Stack className="h-[100dvh] items-center justify-center overflow-hidden ">
-        <HStack className="z-10 w-full justify-center px-4">{children}</HStack>
-        <Particles id="tsparticles" options={options} />
-      </Stack>
-    );
-  }
-
-  return <></>;
+  return (
+    <Stack className="h-[100dvh] items-center justify-center overflow-hidden ">
+      <HStack className="z-10 w-full justify-center px-4">{children}</HStack>
+      {init && <Particles id="tsparticles" options={options} />}
+    </Stack>
+  );
 };
