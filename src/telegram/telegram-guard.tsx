@@ -5,10 +5,15 @@ import { Stack } from "@components/atoms/Stack";
 import { Text } from "@components/atoms/Text";
 import { FC, PropsWithChildren } from "react";
 import { useTelegram } from ".";
-
-export const TelegramGuard: FC<PropsWithChildren> = ({ children }) => {
+interface TelegramGuardProps {
+  off?: boolean;
+}
+export const TelegramGuard: FC<PropsWithChildren<TelegramGuardProps>> = ({
+  children,
+  off = false,
+}) => {
   const { webApp } = useTelegram();
-  if (!webApp?.initData) {
+  if (!webApp?.initData && !off) {
     return (
       <AnimatedBackground>
         <Card className="bg-white w-full max-w-md">

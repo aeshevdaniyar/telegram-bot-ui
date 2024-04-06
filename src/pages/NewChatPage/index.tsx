@@ -39,6 +39,7 @@ export const NewChat = () => {
         <ChatHeaderContent
           aiLogo={aiinfo.icon}
           aiName={aiinfo.name}
+          amount={aiinfo.amount}
           rightElement={
             <ShareChat shareContent={<></>}>
               <ShareIcon />

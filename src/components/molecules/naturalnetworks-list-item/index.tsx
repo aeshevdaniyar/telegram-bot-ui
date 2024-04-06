@@ -24,6 +24,7 @@ export const NaturalnetworksListItem: FC<NaturalnetworksListItemProps> = (
       pk,
       icon,
       name,
+      amount: 120,
     });
     navigate(`/new-chat?${query}`);
   };

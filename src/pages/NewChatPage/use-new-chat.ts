@@ -5,6 +5,7 @@ export interface NewChatQueryParams {
   icon: string;
   name: string;
   pk: string;
+  amount: number;
 }
 export const useNewChat = (queryString: string) => {
   if (queryString[0] == "?") {
@@ -34,6 +35,7 @@ export const parseQuery = (queryString: string): NewChatQueryParams => {
     icon: "",
     name: "",
     pk: "",
+    amount: 0,
   };
   for (const [key, value] of Object.entries(filters)) {
     switch (key) {
@@ -58,6 +60,12 @@ export const parseQuery = (queryString: string): NewChatQueryParams => {
       case "pk": {
         if (typeof value == "string") {
           defValue.pk = value;
+        }
+        break;
+      }
+      case "amount": {
+        if (typeof value == "string") {
+          defValue.amount = parseInt(value);
         }
         break;
       }
