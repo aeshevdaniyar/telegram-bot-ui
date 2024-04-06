@@ -17,6 +17,7 @@ import { QuestionMark } from "@components/molecules/question-mark";
 import { PageHeader } from "@components/organisms/page-header";
 import { BaseHeaderContent } from "@components/templates/base-header-content";
 import { PageSkeleton } from "./page-skeleton";
+import { Link } from "react-router-dom";
 const ProfilePage = () => {
   const { user } = useTelegram();
   const { profile, isLoading } = useProfile(1605368953);
@@ -83,7 +84,9 @@ const ProfilePage = () => {
                     <QuestionMark popoverText="Тут текст" />
                   </HStack>
                 </Card>
-                <Button>Купить токены</Button>
+                <Button asChild>
+                  <Link to={"/tokens"}> Купить токены</Link>
+                </Button>
               </Stack>
               <Stack>
                 <Card>
@@ -94,7 +97,9 @@ const ProfilePage = () => {
                     <QuestionMark popoverText="Тут текст" />
                   </HStack>
                 </Card>
-                <Button>Купить токены</Button>
+                <Button asChild>
+                  <Link to={"/plans"}> Купить токены</Link>
+                </Button>
               </Stack>
             </Stack>
           </Box>
@@ -105,9 +110,15 @@ const ProfilePage = () => {
                 нейросетями, у нас уже более 50 разных нейросетей, и более 1000
                 вариаций моделей в них!
               </Text>
-              <Button className="bg-white w-full md:max-w-56 text-primary h-max hover:bg-white hover:text-primary">
-                Перейти к нейросетям {">"}
-                {">"}
+
+              <Button
+                className="bg-white w-full md:max-w-56 text-primary h-max hover:bg-white hover:text-primary"
+                asChild
+              >
+                <Link to={"/natural-networks"}>
+                  Перейти к нейросетям {">"}
+                  {">"}
+                </Link>
               </Button>
             </HStack>
           </Box>
