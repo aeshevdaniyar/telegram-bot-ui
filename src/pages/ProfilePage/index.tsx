@@ -16,9 +16,10 @@ import { Container } from "@components/molecules/container";
 import { QuestionMark } from "@components/molecules/question-mark";
 import { PageHeader } from "@components/organisms/page-header";
 import { BaseHeaderContent } from "@components/templates/base-header-content";
+import { useNavigate } from "react-router-dom";
 import { PageSkeleton } from "./page-skeleton";
-import { Link } from "react-router-dom";
 const ProfilePage = () => {
+  const navigate = useNavigate();
   const { user } = useTelegram();
   const { profile, isLoading } = useProfile(1605368953);
 
@@ -84,8 +85,8 @@ const ProfilePage = () => {
                     <QuestionMark popoverText="Тут текст" />
                   </HStack>
                 </Card>
-                <Button asChild>
-                  <Link to={"/tokens"}> Купить токены</Link>
+                <Button onClick={() => navigate("/tokens")}>
+                  Купить токены
                 </Button>
               </Stack>
               <Stack>
@@ -97,8 +98,8 @@ const ProfilePage = () => {
                     <QuestionMark popoverText="Тут текст" />
                   </HStack>
                 </Card>
-                <Button asChild>
-                  <Link to={"/plans"}> Купить токены</Link>
+                <Button onClick={() => navigate("/plans")}>
+                  Купить токены
                 </Button>
               </Stack>
             </Stack>
@@ -113,12 +114,10 @@ const ProfilePage = () => {
 
               <Button
                 className="bg-white w-full md:max-w-56 text-primary h-max hover:bg-white hover:text-primary"
-                asChild
+                onClick={() => navigate("/natural-network")}
               >
-                <Link to={"/natural-networks"}>
-                  Перейти к нейросетям {">"}
-                  {">"}
-                </Link>
+                Перейти к нейросетям {">"}
+                {">"}
               </Button>
             </HStack>
           </Box>
