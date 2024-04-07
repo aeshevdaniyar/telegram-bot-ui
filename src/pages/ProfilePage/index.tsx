@@ -114,7 +114,7 @@ const ProfilePage = () => {
 
               <Button
                 className="bg-white w-full md:max-w-56 text-primary h-max hover:bg-white hover:text-primary"
-                onClick={() => navigate("/natural-network")}
+                onClick={() => navigate("/natural-networks")}
               >
                 Перейти к нейросетям {">"}
                 {">"}
