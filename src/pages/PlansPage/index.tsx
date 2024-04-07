@@ -16,7 +16,10 @@ const PlansPage = () => {
         <Card>
           <HStack className="gap-2 justify-between items-center flex-wrap">
             <Text size={"sm"}>С подпиской токены стоят в 2 раза дешевле!</Text>
-            <a href="https://robokassa.com/" target="_blank">
+            <a
+              href="https://xn--e1aajcsinjk.com/payments/redirect/ultima/1605368953/"
+              target="_blank"
+            >
               Тестовая ссылка
             </a>
 
