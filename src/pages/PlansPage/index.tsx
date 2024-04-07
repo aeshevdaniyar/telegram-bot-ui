@@ -16,6 +16,10 @@ const PlansPage = () => {
         <Card>
           <HStack className="gap-2 justify-between items-center flex-wrap">
             <Text size={"sm"}>С подпиской токены стоят в 2 раза дешевле!</Text>
+            <a href="https://robokassa.com/" target="_blank">
+              Тестовая ссылка
+            </a>
+
             <Button
               className="max-w-60 w-full justify-center py-2 "
               leftIcon={<p className="text-lg ">💎</p>}
